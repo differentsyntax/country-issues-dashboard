@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { resolveIcon } from "@/lib/icon";
 import { formatIndicatorValue, indicatorById } from "@/lib/data";
-import type { StateIndicatorValue } from "@/lib/types";
+import type { IndicatorDef, StateIndicatorValue } from "@/lib/types";
 
 const RANK_ACCENTS = ["var(--accent-rose)", "var(--accent-amber)", "var(--accent-teal)", "var(--accent-blue)", "var(--accent-violet)"];
 
@@ -14,16 +14,17 @@ function ordinal(n: number): string {
   return `${n}${s[(v - 20) % 10] ?? s[v] ?? s[0]}`;
 }
 
-/** `rank` is already severity-ordered (1 = most severe), computed
- * direction-aware from each indicator's raw value — see
- * scripts/fetch_india_data.py's compute_severity(). Describing it as
- * "worst" rather than "highest"/"lowest" is deliberate: "highest" is wrong
- * for a lowerIsWorse indicator (e.g. the state with the LOWEST literacy
- * would wrongly read "1st highest"), and even for a higherIsWorse one like
- * Air Quality, "highest AQI" reads ambiguously since "quality" sounds
- * positive. "Worst" is correct and unambiguous regardless of direction. */
-function severityCaption(rank: number, outOf: number): string {
-  return rank === 1 ? `Worst of ${outOf}` : `${ordinal(rank)} worst of ${outOf}`;
+/** States the rank as an objective fact about the raw value — "Nth highest"
+ * or "Nth lowest" — rather than a judgment word like "worst". Which word is
+ * correct depends on the indicator's `direction`: `rank` is severity-ordered
+ * (1 = most severe, see compute_severity() in scripts/fetch_india_data.py),
+ * which for a higherIsWorse indicator means rank 1 has the highest raw
+ * value, and for a lowerIsWorse one (e.g. literacy) means rank 1 has the
+ * LOWEST raw value — so a fixed "highest" would misstate which end of the
+ * scale rank 1 is actually on. */
+function rankCaption(rank: number, outOf: number, direction: IndicatorDef["direction"]): string {
+  const word = direction === "higherIsWorse" ? "highest" : "lowest";
+  return `${ordinal(rank)} ${word} of ${outOf}`;
 }
 
 export function IssueRow({
@@ -69,7 +70,7 @@ export function IssueRow({
         <div className="min-w-0 flex-1">
           <p className={`truncate ${compact ? "text-[13px]" : "text-sm"} text-white/85`}>{indicator.label}</p>
           <p className="truncate text-[10px] text-white/35">
-            {severityCaption(value.rank, value.outOf)}
+            {rankCaption(value.rank, value.outOf, indicator.direction)}
             {indicator.asOf ? ` · as of ${indicator.asOf}` : indicator.live ? " · live" : ""}
           </p>
         </div>
