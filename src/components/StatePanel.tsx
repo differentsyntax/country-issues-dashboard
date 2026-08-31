@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, MapPinned, Landmark, ExternalLink } from "lucide-react";
 import { IssueRow } from "./IssueRow";
@@ -8,31 +9,91 @@ import { partySymbol } from "@/lib/partySymbols";
 import { useDashboardStore } from "@/lib/store";
 import { useLiveAqi } from "@/lib/useLiveAqi";
 
+const PANEL_TITLE_ID = "state-panel-title";
+
 export function StatePanel() {
   const selectedStateKey = useDashboardStore((s) => s.selectedStateKey);
   const selectState = useDashboardStore((s) => s.selectState);
   const liveAqi = useLiveAqi();
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const previouslyFocused = useRef<HTMLElement | null>(null);
 
   const state = selectedStateKey ? stateByKey.get(selectedStateKey) : null;
   const liveAqiEntry = selectedStateKey ? liveAqi.severityByState[selectedStateKey] : undefined;
   const topIssues = state ? topIndicatorsForState(state, 5, liveAqiEntry ? [liveAqiEntry] : []) : [];
 
+  // Escape closes regardless of breakpoint — reasonable either as "dismiss
+  // the modal" on mobile or "deselect" on desktop.
+  useEffect(() => {
+    if (!state) return;
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") selectState(null);
+    }
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [state, selectState]);
+
+  // On mobile the panel is a full modal covering the map, so background
+  // scroll should be locked; on desktop it's just a sidebar card sitting
+  // next to normally-scrollable content, so it shouldn't be. 1024px matches
+  // Tailwind's `lg` breakpoint used for the panel's own responsive classes.
+  useEffect(() => {
+    if (!state) return;
+    const mq = window.matchMedia("(min-width: 1024px)");
+    function applyLock() {
+      document.body.style.overflow = mq.matches ? "" : "hidden";
+    }
+    applyLock();
+    mq.addEventListener("change", applyLock);
+    return () => {
+      mq.removeEventListener("change", applyLock);
+      document.body.style.overflow = "";
+    };
+  }, [state]);
+
+  // Move focus into the panel on open (so keyboard/screen-reader users land
+  // on it rather than it opening silently behind them) and restore focus to
+  // whatever triggered it on close. Note: this does not trap Tab within the
+  // panel — a full focus trap is a known gap, not implemented here.
+  useEffect(() => {
+    if (state) {
+      previouslyFocused.current = document.activeElement as HTMLElement | null;
+      closeButtonRef.current?.focus();
+    } else {
+      previouslyFocused.current?.focus();
+      previouslyFocused.current = null;
+    }
+  }, [state]);
+
   return (
     <>
       {/* Backdrop: mobile only. On desktop the panel sits in-flow in the
-       * sidebar column, so there's nothing to dismiss out from behind. */}
-      {state && (
-        <div
-          className="fixed inset-0 z-40 bg-black/60 lg:hidden"
-          onClick={() => selectState(null)}
-          aria-hidden="true"
-        />
-      )}
+       * sidebar column, so there's nothing to dismiss out from behind.
+       * Shares AnimatePresence with the panel so both fade out together —
+       * kept separate from the panel's own element since it must cover the
+       * full viewport regardless of the panel's own (responsive) sizing. */}
+      <AnimatePresence>
+        {state && (
+          <motion.div
+            key="backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="fixed inset-0 z-40 bg-black/60 lg:hidden"
+            onClick={() => selectState(null)}
+            aria-hidden="true"
+          />
+        )}
+      </AnimatePresence>
 
       <AnimatePresence initial={false}>
         {state ? (
           <motion.section
             key={state.key}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={PANEL_TITLE_ID}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -48,7 +109,9 @@ export function StatePanel() {
                   <MapPinned className="h-4 w-4 text-teal-300" strokeWidth={1.75} />
                 </span>
                 <div>
-                  <h2 className="text-sm font-semibold text-white/90">{state.name}</h2>
+                  <h2 id={PANEL_TITLE_ID} className="text-sm font-semibold text-white/90">
+                    {state.name}
+                  </h2>
                   <p className="text-[11px] text-white/40">
                     {formatPopulation(state.population2011)}
                     {state.zone ? ` · ${state.zone} zone` : ""}
@@ -57,6 +120,7 @@ export function StatePanel() {
                 </div>
               </div>
               <button
+                ref={closeButtonRef}
                 onClick={() => selectState(null)}
                 className="flex h-7 w-7 items-center justify-center rounded-lg text-white/40 transition hover:bg-white/10 hover:text-white"
                 aria-label="Close state detail"
