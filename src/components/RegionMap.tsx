@@ -36,6 +36,14 @@ export function RegionMap() {
     setTooltipPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
   }
 
+  // Selecting a state opens its full detail in StatePanel — the hover
+  // tooltip's "Click for full detail" job is done, so dismiss it rather
+  // than leaving it to keep following the cursor after the click.
+  function handleSelect(key: string, isSelected: boolean) {
+    selectState(isSelected ? null : key);
+    hoverState(null);
+  }
+
   // For each state, resolve which indicator is driving its color and how
   // severe that reading is, in both the default categorical mode and the
   // single-indicator picker mode.
@@ -111,14 +119,14 @@ export function RegionMap() {
                 strokeWidth={isSelected ? 1.6 : 0.6}
                 filter={isHovered || isSelected ? "url(#state-glow)" : undefined}
                 onMouseEnter={() => hoverState(key)}
-                onClick={() => selectState(isSelected ? null : key)}
+                onClick={() => handleSelect(key, isSelected)}
                 tabIndex={0}
                 role="button"
                 aria-label={key}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
-                    selectState(isSelected ? null : key);
+                    handleSelect(key, isSelected);
                   }
                 }}
               />
@@ -139,7 +147,7 @@ export function RegionMap() {
                   fill="transparent"
                   className="cursor-pointer"
                   onMouseEnter={() => hoverState(key)}
-                  onClick={() => selectState(isSelected ? null : key)}
+                  onClick={() => handleSelect(key, isSelected)}
                 />
                 <circle
                   cx={c[0]}
