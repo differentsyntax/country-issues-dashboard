@@ -14,6 +14,18 @@ function ordinal(n: number): string {
   return `${n}${s[(v - 20) % 10] ?? s[v] ?? s[0]}`;
 }
 
+/** `rank` is already severity-ordered (1 = most severe), computed
+ * direction-aware from each indicator's raw value — see
+ * scripts/fetch_india_data.py's compute_severity(). Describing it as
+ * "worst" rather than "highest"/"lowest" is deliberate: "highest" is wrong
+ * for a lowerIsWorse indicator (e.g. the state with the LOWEST literacy
+ * would wrongly read "1st highest"), and even for a higherIsWorse one like
+ * Air Quality, "highest AQI" reads ambiguously since "quality" sounds
+ * positive. "Worst" is correct and unambiguous regardless of direction. */
+function severityCaption(rank: number, outOf: number): string {
+  return rank === 1 ? `Worst of ${outOf}` : `${ordinal(rank)} worst of ${outOf}`;
+}
+
 export function IssueRow({
   value,
   rank,
@@ -57,7 +69,7 @@ export function IssueRow({
         <div className="min-w-0 flex-1">
           <p className={`truncate ${compact ? "text-[13px]" : "text-sm"} text-white/85`}>{indicator.label}</p>
           <p className="truncate text-[10px] text-white/35">
-            {ordinal(value.rank)} highest of {value.outOf}
+            {severityCaption(value.rank, value.outOf)}
             {indicator.asOf ? ` · as of ${indicator.asOf}` : indicator.live ? " · live" : ""}
           </p>
         </div>
