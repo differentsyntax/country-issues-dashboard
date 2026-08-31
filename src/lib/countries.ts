@@ -3,7 +3,7 @@ import type { CountryPackage } from "./types";
 
 /**
  * Registry of available countries. Add a new one by creating
- * src/data/countries/<code>/{geo.json,issues.json,index.ts} (use the india
+ * src/data/countries/<code>/{geo.json,indicators.json,index.ts} (use the india
  * package as a template — same field shapes) and listing its export here.
  */
 export const COUNTRIES: CountryPackage[] = [india];

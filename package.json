@@ -2,7 +2,7 @@
   "name": "country-issues-dashboard",
   "version": "0.1.0",
   "private": true,
-  "description": "An interactive dashboard of a country's top civic & administrative grievance issues, nationally and region-by-region, on a monthly reporting cadence.",
+  "description": "An interactive dashboard of a country's real, publicly-sourced civic indicators by state/region — economy, health, crime, air quality, and ruling government.",
   "license": "MIT",
   "author": "Mridul Awasthi",
   "repository": {
@@ -22,10 +22,10 @@
     "next": "16.3.3",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "recharts": "^3.10.1",
     "zustand": "^5.0.15"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.15.13",
     "@tailwindcss/postcss": "^4",
     "@types/d3-geo": "^3.1.1",
     "@types/geojson": "^7946.0.16",

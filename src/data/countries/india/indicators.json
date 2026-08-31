@@ -1,0 +1,1896 @@
+{
+  "meta": {
+    "title": "India Civic Issues Tracker",
+    "generatedAt": "2026-08-31T03:01:06.273376+00:00",
+    "generatedNote": "Every figure below comes from a real, cited, published source (see each indicator's source link). Nothing here is simulated. Most sources publish annually or periodically, not daily — see each indicator's 'as of' date. Air Quality is fetched live per pageview instead of stored here.",
+    "indicators": [
+      {
+        "id": "unemployment",
+        "label": "Unemployment",
+        "icon": "briefcase",
+        "unit": "%",
+        "direction": "higherIsWorse",
+        "asOf": "2018–19",
+        "sourceName": "Periodic Labour Force Survey (PLFS), MoSPI — via Wikipedia",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_states_and_union_territories_of_India_by_unemployment_rate"
+      },
+      {
+        "id": "poverty",
+        "label": "Poverty (MPI)",
+        "icon": "wallet",
+        "unit": "%",
+        "direction": "higherIsWorse",
+        "asOf": "2023",
+        "sourceName": "NITI Aayog Multidimensional Poverty Index — via Wikipedia",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_Indian_states_and_union_territories_by_poverty_rate"
+      },
+      {
+        "id": "crime",
+        "label": "Crime Rate",
+        "icon": "shield-alert",
+        "unit": "per lakh pop.",
+        "direction": "higherIsWorse",
+        "asOf": "2023",
+        "sourceName": "National Crime Records Bureau (NCRB), Crime in India 2023 — via Wikipedia",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_states_and_union_territories_of_India_by_crime_rate"
+      },
+      {
+        "id": "education",
+        "label": "Education Access",
+        "icon": "school",
+        "unit": "% literate",
+        "direction": "lowerIsWorse",
+        "asOf": "2024",
+        "sourceName": "Periodic Labour Force Survey (PLFS) report 2024 — via Wikipedia",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_Indian_states_and_union_territories_by_literacy_rate"
+      },
+      {
+        "id": "health",
+        "label": "Health (Infant Mortality)",
+        "icon": "stethoscope",
+        "unit": "per 1,000 live births",
+        "direction": "higherIsWorse",
+        "asOf": "2019",
+        "sourceName": "Sample Registration System (SRS), Ministry of Health — via Wikipedia",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_Indian_states_by_infant_mortality_rate"
+      },
+      {
+        "id": "pollution",
+        "label": "Air Quality",
+        "icon": "wind",
+        "unit": "AQI",
+        "direction": "higherIsWorse",
+        "asOf": null,
+        "sourceName": "World Air Quality Index Project (AQICN), real-time",
+        "sourceUrl": "https://aqicn.org/",
+        "live": true
+      }
+    ],
+    "contextSourceName": "Wikipedia — States and union territories of India (zone, capital, area, 2011 census population)",
+    "contextSourceUrl": "https://en.wikipedia.org/wiki/States_and_union_territories_of_India",
+    "governmentSourceName": "Wikipedia — Chief minister (India), current list",
+    "governmentSourceUrl": "https://en.wikipedia.org/wiki/Chief_minister_(India)#Current_list"
+  },
+  "government": {
+    "Andhra Pradesh": {
+      "cmName": "N. Chandrababu Naidu",
+      "party": "TDP"
+    },
+    "Arunachal Pradesh": {
+      "cmName": "Pema Khandu",
+      "party": "BJP"
+    },
+    "Assam": {
+      "cmName": "Himanta Biswa Sarma",
+      "party": "BJP"
+    },
+    "Bihar": {
+      "cmName": "Samrat Choudhary",
+      "party": "BJP"
+    },
+    "Chhattisgarh": {
+      "cmName": "Vishnu Deo Sai",
+      "party": "BJP"
+    },
+    "Delhi": {
+      "cmName": "Rekha Gupta",
+      "party": "BJP"
+    },
+    "Goa": {
+      "cmName": "Pramod Sawant",
+      "party": "BJP"
+    },
+    "Gujarat": {
+      "cmName": "Bhupendrabhai Patel",
+      "party": "BJP"
+    },
+    "Haryana": {
+      "cmName": "Nayab Singh Saini",
+      "party": "BJP"
+    },
+    "Himachal Pradesh": {
+      "cmName": "Sukhvinder Singh Sukhu",
+      "party": "INC"
+    },
+    "Jammu and Kashmir": {
+      "cmName": "Omar Abdullah",
+      "party": "JKNC"
+    },
+    "Jharkhand": {
+      "cmName": "Hemant Soren",
+      "party": "JMM"
+    },
+    "Karnataka": {
+      "cmName": "D. K. Shivakumar",
+      "party": "INC"
+    },
+    "Kerala": {
+      "cmName": "V. D. Satheesan",
+      "party": "INC"
+    },
+    "Madhya Pradesh": {
+      "cmName": "Mohan Yadav",
+      "party": "BJP"
+    },
+    "Maharashtra": {
+      "cmName": "Devendra Fadnavis",
+      "party": "BJP"
+    },
+    "Manipur": {
+      "cmName": "Yumnam Khemchand Singh",
+      "party": "BJP"
+    },
+    "Meghalaya": {
+      "cmName": "Conrad Sangma",
+      "party": "NPP"
+    },
+    "Mizoram": {
+      "cmName": "Lalduhoma",
+      "party": "ZPM"
+    },
+    "Nagaland": {
+      "cmName": "Neiphiu Rio",
+      "party": "NPF"
+    },
+    "Odisha": {
+      "cmName": "Mohan Charan Majhi",
+      "party": "BJP"
+    },
+    "Puducherry": {
+      "cmName": "N. Rangaswamy",
+      "party": "AINRC"
+    },
+    "Punjab": {
+      "cmName": "Bhagwant Mann",
+      "party": "AAP"
+    },
+    "Rajasthan": {
+      "cmName": "Bhajan Lal Sharma",
+      "party": "BJP"
+    },
+    "Sikkim": {
+      "cmName": "Prem Singh Tamang",
+      "party": "SKM"
+    },
+    "Tamil Nadu": {
+      "cmName": "C. Joseph Vijay",
+      "party": "TVK"
+    },
+    "Telangana": {
+      "cmName": "Revanth Reddy",
+      "party": "INC"
+    },
+    "Tripura": {
+      "cmName": "Manik Saha",
+      "party": "BJP"
+    },
+    "Uttar Pradesh": {
+      "cmName": "Yogi Adityanath",
+      "party": "BJP"
+    },
+    "Uttarakhand": {
+      "cmName": "Pushkar Singh Dhami",
+      "party": "BJP"
+    },
+    "West Bengal": {
+      "cmName": "Suvendu Adhikari",
+      "party": "BJP"
+    }
+  },
+  "states": [
+    {
+      "name": "Andhra Pradesh",
+      "key": "Andhra Pradesh",
+      "zone": "Southern",
+      "capital": "Amaravati",
+      "areaKm2": 162975.0,
+      "population2011": 49506799,
+      "government": {
+        "cmName": "N. Chandrababu Naidu",
+        "party": "TDP"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 4.8,
+          "rank": 21,
+          "outOf": 27,
+          "percentile": 0.2308
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 4.19,
+          "rank": 22,
+          "outOf": 36,
+          "percentile": 0.4
+        },
+        {
+          "indicatorId": "crime",
+          "value": 346.3,
+          "rank": 13,
+          "outOf": 34,
+          "percentile": 0.6364
+        },
+        {
+          "indicatorId": "education",
+          "value": 72.6,
+          "rank": 1,
+          "outOf": 36,
+          "percentile": 1.0
+        },
+        {
+          "indicatorId": "health",
+          "value": 25.0,
+          "rank": 14,
+          "outOf": 34,
+          "percentile": 0.6061
+        }
+      ],
+      "topIssueId": "education"
+    },
+    {
+      "name": "Arunachal Pradesh",
+      "key": "Arunachal Pradesh",
+      "zone": "North-Eastern",
+      "capital": "Itanagar",
+      "areaKm2": 83743.0,
+      "population2011": 1383727,
+      "government": {
+        "cmName": "Pema Khandu",
+        "party": "BJP"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 18.3,
+          "rank": 5,
+          "outOf": 27,
+          "percentile": 0.8462
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 10.05,
+          "rank": 12,
+          "outOf": 36,
+          "percentile": 0.6857
+        },
+        {
+          "indicatorId": "crime",
+          "value": 187.9,
+          "rank": 25,
+          "outOf": 34,
+          "percentile": 0.2727
+        },
+        {
+          "indicatorId": "education",
+          "value": 84.2,
+          "rank": 16,
+          "outOf": 36,
+          "percentile": 0.5714
+        },
+        {
+          "indicatorId": "health",
+          "value": 29.0,
+          "rank": 8,
+          "outOf": 34,
+          "percentile": 0.7879
+        }
+      ],
+      "topIssueId": "unemployment"
+    },
+    {
+      "name": "Assam",
+      "key": "Assam",
+      "zone": "North-Eastern",
+      "capital": "Dispur",
+      "areaKm2": 78438.0,
+      "population2011": 31205576,
+      "government": {
+        "cmName": "Himanta Biswa Sarma",
+        "party": "BJP"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 10.4,
+          "rank": 13,
+          "outOf": 27,
+          "percentile": 0.5385
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 14.47,
+          "rank": 6,
+          "outOf": 36,
+          "percentile": 0.8571
+        },
+        {
+          "indicatorId": "crime",
+          "value": 181.3,
+          "rank": 28,
+          "outOf": 34,
+          "percentile": 0.1818
+        },
+        {
+          "indicatorId": "education",
+          "value": 87.0,
+          "rank": 22,
+          "outOf": 36,
+          "percentile": 0.4
+        },
+        {
+          "indicatorId": "health",
+          "value": 40.0,
+          "rank": 4,
+          "outOf": 34,
+          "percentile": 0.9091
+        }
+      ],
+      "topIssueId": "health"
+    },
+    {
+      "name": "Bihar",
+      "key": "Bihar",
+      "zone": "Eastern",
+      "capital": "Patna",
+      "areaKm2": 94163.0,
+      "population2011": 104099452,
+      "government": {
+        "cmName": "Samrat Choudhary",
+        "party": "BJP"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 11.4,
+          "rank": 10,
+          "outOf": 27,
+          "percentile": 0.6538
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 26.59,
+          "rank": 1,
+          "outOf": 36,
+          "percentile": 1.0
+        },
+        {
+          "indicatorId": "crime",
+          "value": 277.5,
+          "rank": 20,
+          "outOf": 34,
+          "percentile": 0.4242
+        },
+        {
+          "indicatorId": "education",
+          "value": 74.3,
+          "rank": 2,
+          "outOf": 36,
+          "percentile": 0.9714
+        },
+        {
+          "indicatorId": "health",
+          "value": 29.0,
+          "rank": 9,
+          "outOf": 34,
+          "percentile": 0.7576
+        }
+      ],
+      "topIssueId": "poverty"
+    },
+    {
+      "name": "Chhattisgarh",
+      "key": "Chhattisgarh",
+      "zone": "Central",
+      "capital": "Raipur",
+      "areaKm2": 135194.0,
+      "population2011": 25545198,
+      "government": {
+        "cmName": "Vishnu Deo Sai",
+        "party": "BJP"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 10.1,
+          "rank": 14,
+          "outOf": 27,
+          "percentile": 0.5
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 11.71,
+          "rank": 8,
+          "outOf": 36,
+          "percentile": 0.8
+        },
+        {
+          "indicatorId": "crime",
+          "value": 381.2,
+          "rank": 12,
+          "outOf": 34,
+          "percentile": 0.6667
+        },
+        {
+          "indicatorId": "education",
+          "value": 78.5,
+          "rank": 8,
+          "outOf": 36,
+          "percentile": 0.8
+        },
+        {
+          "indicatorId": "health",
+          "value": 40.0,
+          "rank": 3,
+          "outOf": 34,
+          "percentile": 0.9394
+        }
+      ],
+      "topIssueId": "health"
+    },
+    {
+      "name": "Goa",
+      "key": "Goa",
+      "zone": "Western",
+      "capital": "Panaji",
+      "areaKm2": 3702.0,
+      "population2011": 1458545,
+      "government": {
+        "cmName": "Pramod Sawant",
+        "party": "BJP"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 10.9,
+          "rank": 11,
+          "outOf": 27,
+          "percentile": 0.6154
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 0.37,
+          "rank": 36,
+          "outOf": 36,
+          "percentile": 0.0
+        },
+        {
+          "indicatorId": "crime",
+          "value": 195.4,
+          "rank": 24,
+          "outOf": 34,
+          "percentile": 0.303
+        },
+        {
+          "indicatorId": "education",
+          "value": 93.6,
+          "rank": 29,
+          "outOf": 36,
+          "percentile": 0.2
+        },
+        {
+          "indicatorId": "health",
+          "value": 8.0,
+          "rank": 28,
+          "outOf": 34,
+          "percentile": 0.1818
+        }
+      ],
+      "topIssueId": "unemployment"
+    },
+    {
+      "name": "Gujarat",
+      "key": "Gujarat",
+      "zone": "Western",
+      "capital": "Gandhinagar",
+      "areaKm2": 196024.0,
+      "population2011": 60439692,
+      "government": {
+        "cmName": "Bhupendrabhai Patel",
+        "party": "BJP"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 3.9,
+          "rank": 24,
+          "outOf": 27,
+          "percentile": 0.1154
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 9.03,
+          "rank": 13,
+          "outOf": 36,
+          "percentile": 0.6571
+        },
+        {
+          "indicatorId": "crime",
+          "value": 806.3,
+          "rank": 3,
+          "outOf": 34,
+          "percentile": 0.9394
+        },
+        {
+          "indicatorId": "education",
+          "value": 84.6,
+          "rank": 17,
+          "outOf": 36,
+          "percentile": 0.5429
+        },
+        {
+          "indicatorId": "health",
+          "value": 25.0,
+          "rank": 13,
+          "outOf": 34,
+          "percentile": 0.6364
+        }
+      ],
+      "topIssueId": "crime"
+    },
+    {
+      "name": "Haryana",
+      "key": "Haryana",
+      "zone": "Northern",
+      "capital": "Chandigarh",
+      "areaKm2": 44212.0,
+      "population2011": 25351462,
+      "government": {
+        "cmName": "Nayab Singh Saini",
+        "party": "BJP"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 22.9,
+          "rank": 4,
+          "outOf": 27,
+          "percentile": 0.8846
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 5.3,
+          "rank": 20,
+          "outOf": 36,
+          "percentile": 0.4571
+        },
+        {
+          "indicatorId": "crime",
+          "value": 739.2,
+          "rank": 4,
+          "outOf": 34,
+          "percentile": 0.9091
+        },
+        {
+          "indicatorId": "education",
+          "value": 84.8,
+          "rank": 19,
+          "outOf": 36,
+          "percentile": 0.4857
+        },
+        {
+          "indicatorId": "health",
+          "value": 27.0,
+          "rank": 12,
+          "outOf": 34,
+          "percentile": 0.6667
+        }
+      ],
+      "topIssueId": "crime"
+    },
+    {
+      "name": "Himachal Pradesh",
+      "key": "Himachal Pradesh",
+      "zone": "Northern",
+      "capital": "Shimla (Summer) Dharamshala (Winter)",
+      "areaKm2": 55673.0,
+      "population2011": 6864602,
+      "government": {
+        "cmName": "Sukhvinder Singh Sukhu",
+        "party": "INC"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 9.2,
+          "rank": 16,
+          "outOf": 27,
+          "percentile": 0.4231
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 3.88,
+          "rank": 23,
+          "outOf": 36,
+          "percentile": 0.3714
+        },
+        {
+          "indicatorId": "crime",
+          "value": 267.2,
+          "rank": 21,
+          "outOf": 34,
+          "percentile": 0.3939
+        },
+        {
+          "indicatorId": "education",
+          "value": 88.8,
+          "rank": 25,
+          "outOf": 36,
+          "percentile": 0.3143
+        },
+        {
+          "indicatorId": "health",
+          "value": 19.0,
+          "rank": 21,
+          "outOf": 34,
+          "percentile": 0.3939
+        }
+      ],
+      "topIssueId": "unemployment"
+    },
+    {
+      "name": "Jharkhand",
+      "key": "Jharkhand",
+      "zone": "Eastern",
+      "capital": "Ranchi",
+      "areaKm2": 79714.0,
+      "population2011": 32988134,
+      "government": {
+        "cmName": "Hemant Soren",
+        "party": "JMM"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 12.2,
+          "rank": 9,
+          "outOf": 27,
+          "percentile": 0.6923
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 23.34,
+          "rank": 3,
+          "outOf": 36,
+          "percentile": 0.9429
+        },
+        {
+          "indicatorId": "crime",
+          "value": 161.1,
+          "rank": 30,
+          "outOf": 34,
+          "percentile": 0.1212
+        },
+        {
+          "indicatorId": "education",
+          "value": 76.7,
+          "rank": 5,
+          "outOf": 36,
+          "percentile": 0.8857
+        },
+        {
+          "indicatorId": "health",
+          "value": 27.0,
+          "rank": 10,
+          "outOf": 34,
+          "percentile": 0.7273
+        }
+      ],
+      "topIssueId": "poverty"
+    },
+    {
+      "name": "Karnataka",
+      "key": "Karnataka",
+      "zone": "Southern",
+      "capital": "Bengaluru (Summer) Belagavi (Winter)",
+      "areaKm2": 191791.0,
+      "population2011": 61095297,
+      "government": {
+        "cmName": "D. K. Shivakumar",
+        "party": "INC"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 10.65,
+          "rank": 12,
+          "outOf": 27,
+          "percentile": 0.5769
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 5.67,
+          "rank": 17,
+          "outOf": 36,
+          "percentile": 0.5429
+        },
+        {
+          "indicatorId": "crime",
+          "value": 315.8,
+          "rank": 17,
+          "outOf": 34,
+          "percentile": 0.5152
+        },
+        {
+          "indicatorId": "education",
+          "value": 82.7,
+          "rank": 13,
+          "outOf": 36,
+          "percentile": 0.6571
+        },
+        {
+          "indicatorId": "health",
+          "value": 21.0,
+          "rank": 17,
+          "outOf": 34,
+          "percentile": 0.5152
+        }
+      ],
+      "topIssueId": "education"
+    },
+    {
+      "name": "Kerala",
+      "key": "Kerala",
+      "zone": "Southern",
+      "capital": "Thiruvananthapuram",
+      "areaKm2": 38863.0,
+      "population2011": 33406061,
+      "government": {
+        "cmName": "V. D. Satheesan",
+        "party": "INC"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 5.8,
+          "rank": 20,
+          "outOf": 27,
+          "percentile": 0.2692
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 0.48,
+          "rank": 35,
+          "outOf": 36,
+          "percentile": 0.0286
+        },
+        {
+          "indicatorId": "crime",
+          "value": 1631.2,
+          "rank": 1,
+          "outOf": 34,
+          "percentile": 1.0
+        },
+        {
+          "indicatorId": "education",
+          "value": 95.3,
+          "rank": 33,
+          "outOf": 36,
+          "percentile": 0.0857
+        },
+        {
+          "indicatorId": "health",
+          "value": 6.0,
+          "rank": 31,
+          "outOf": 34,
+          "percentile": 0.0909
+        }
+      ],
+      "topIssueId": "crime"
+    },
+    {
+      "name": "Madhya Pradesh",
+      "key": "Madhya Pradesh",
+      "zone": "Central",
+      "capital": "Bhopal",
+      "areaKm2": 308252.0,
+      "population2011": 72626809,
+      "government": {
+        "cmName": "Mohan Yadav",
+        "party": "BJP"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 0.9,
+          "rank": 26,
+          "outOf": 27,
+          "percentile": 0.0385
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 15.01,
+          "rank": 5,
+          "outOf": 36,
+          "percentile": 0.8857
+        },
+        {
+          "indicatorId": "crime",
+          "value": 570.3,
+          "rank": 7,
+          "outOf": 34,
+          "percentile": 0.8182
+        },
+        {
+          "indicatorId": "education",
+          "value": 75.2,
+          "rank": 3,
+          "outOf": 36,
+          "percentile": 0.9429
+        },
+        {
+          "indicatorId": "health",
+          "value": 46.0,
+          "rank": 1,
+          "outOf": 34,
+          "percentile": 1.0
+        }
+      ],
+      "topIssueId": "health"
+    },
+    {
+      "name": "Maharashtra",
+      "key": "Maharashtra",
+      "zone": "Western",
+      "capital": "Mumbai (Summer) Nagpur (Winter)",
+      "areaKm2": 307713.0,
+      "population2011": 112374333,
+      "government": {
+        "cmName": "Devendra Fadnavis",
+        "party": "BJP"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 4.3,
+          "rank": 22,
+          "outOf": 27,
+          "percentile": 0.1923
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 5.48,
+          "rank": 18,
+          "outOf": 36,
+          "percentile": 0.5143
+        },
+        {
+          "indicatorId": "crime",
+          "value": 470.4,
+          "rank": 9,
+          "outOf": 34,
+          "percentile": 0.7576
+        },
+        {
+          "indicatorId": "education",
+          "value": 87.3,
+          "rank": 23,
+          "outOf": 36,
+          "percentile": 0.3714
+        },
+        {
+          "indicatorId": "health",
+          "value": 17.0,
+          "rank": 22,
+          "outOf": 34,
+          "percentile": 0.3636
+        }
+      ],
+      "topIssueId": "crime"
+    },
+    {
+      "name": "Manipur",
+      "key": "Manipur",
+      "zone": "North-Eastern",
+      "capital": "Imphal",
+      "areaKm2": 22327.0,
+      "population2011": 2855794,
+      "government": {
+        "cmName": "Yumnam Khemchand Singh",
+        "party": "BJP"
+      },
+      "indicators": [
+        {
+          "indicatorId": "poverty",
+          "value": 5.37,
+          "rank": 19,
+          "outOf": 36,
+          "percentile": 0.4857
+        },
+        {
+          "indicatorId": "crime",
+          "value": 627.8,
+          "rank": 6,
+          "outOf": 34,
+          "percentile": 0.8485
+        },
+        {
+          "indicatorId": "education",
+          "value": 92.0,
+          "rank": 27,
+          "outOf": 36,
+          "percentile": 0.2571
+        },
+        {
+          "indicatorId": "health",
+          "value": 10.0,
+          "rank": 25,
+          "outOf": 34,
+          "percentile": 0.2727
+        }
+      ],
+      "topIssueId": "crime"
+    },
+    {
+      "name": "Meghalaya",
+      "key": "Meghalaya",
+      "zone": "North-Eastern",
+      "capital": "Shillong",
+      "areaKm2": 22429.0,
+      "population2011": 2966889,
+      "government": {
+        "cmName": "Conrad Sangma",
+        "party": "NPP"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 12.3,
+          "rank": 8,
+          "outOf": 27,
+          "percentile": 0.7308
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 25.46,
+          "rank": 2,
+          "outOf": 36,
+          "percentile": 0.9714
+        },
+        {
+          "indicatorId": "crime",
+          "value": 105.2,
+          "rank": 32,
+          "outOf": 34,
+          "percentile": 0.0606
+        },
+        {
+          "indicatorId": "education",
+          "value": 94.2,
+          "rank": 32,
+          "outOf": 36,
+          "percentile": 0.1143
+        },
+        {
+          "indicatorId": "health",
+          "value": 33.0,
+          "rank": 7,
+          "outOf": 34,
+          "percentile": 0.8182
+        }
+      ],
+      "topIssueId": "poverty"
+    },
+    {
+      "name": "Mizoram",
+      "key": "Mizoram",
+      "zone": "North-Eastern",
+      "capital": "Aizawl",
+      "areaKm2": 21081.0,
+      "population2011": 1097206,
+      "government": {
+        "cmName": "Lalduhoma",
+        "party": "ZPM"
+      },
+      "indicators": [
+        {
+          "indicatorId": "poverty",
+          "value": 3.77,
+          "rank": 24,
+          "outOf": 36,
+          "percentile": 0.3429
+        },
+        {
+          "indicatorId": "crime",
+          "value": 326.3,
+          "rank": 16,
+          "outOf": 34,
+          "percentile": 0.5455
+        },
+        {
+          "indicatorId": "education",
+          "value": 98.2,
+          "rank": 36,
+          "outOf": 36,
+          "percentile": 0.0
+        },
+        {
+          "indicatorId": "health",
+          "value": 3.0,
+          "rank": 34,
+          "outOf": 34,
+          "percentile": 0.0
+        }
+      ],
+      "topIssueId": "crime"
+    },
+    {
+      "name": "Nagaland",
+      "key": "Nagaland",
+      "zone": "North-Eastern",
+      "capital": "Kohima",
+      "areaKm2": 16579.0,
+      "population2011": 1978502,
+      "government": {
+        "cmName": "Neiphiu Rio",
+        "party": "NPF"
+      },
+      "indicators": [
+        {
+          "indicatorId": "poverty",
+          "value": 11.76,
+          "rank": 7,
+          "outOf": 36,
+          "percentile": 0.8286
+        },
+        {
+          "indicatorId": "crime",
+          "value": 84.9,
+          "rank": 34,
+          "outOf": 34,
+          "percentile": 0.0
+        },
+        {
+          "indicatorId": "education",
+          "value": 95.7,
+          "rank": 34,
+          "outOf": 36,
+          "percentile": 0.0571
+        },
+        {
+          "indicatorId": "health",
+          "value": 3.0,
+          "rank": 33,
+          "outOf": 34,
+          "percentile": 0.0303
+        }
+      ],
+      "topIssueId": "poverty"
+    },
+    {
+      "name": "Odisha",
+      "key": "Odisha",
+      "zone": "Eastern",
+      "capital": "Bhubaneswar",
+      "areaKm2": 155707.0,
+      "population2011": 41974218,
+      "government": {
+        "cmName": "Mohan Charan Majhi",
+        "party": "BJP"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 15.9,
+          "rank": 7,
+          "outOf": 27,
+          "percentile": 0.7692
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 11.07,
+          "rank": 10,
+          "outOf": 36,
+          "percentile": 0.7429
+        },
+        {
+          "indicatorId": "crime",
+          "value": 431.2,
+          "rank": 10,
+          "outOf": 34,
+          "percentile": 0.7273
+        },
+        {
+          "indicatorId": "education",
+          "value": 79.0,
+          "rank": 9,
+          "outOf": 36,
+          "percentile": 0.7714
+        },
+        {
+          "indicatorId": "health",
+          "value": 38.0,
+          "rank": 5,
+          "outOf": 34,
+          "percentile": 0.8788
+        }
+      ],
+      "topIssueId": "health"
+    },
+    {
+      "name": "Punjab",
+      "key": "Punjab",
+      "zone": "Northern",
+      "capital": "Chandigarh",
+      "areaKm2": 50362.0,
+      "population2011": 27743338,
+      "government": {
+        "cmName": "Bhagwant Mann",
+        "party": "AAP"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 7.0,
+          "rank": 19,
+          "outOf": 27,
+          "percentile": 0.3077
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 4.35,
+          "rank": 21,
+          "outOf": 36,
+          "percentile": 0.4286
+        },
+        {
+          "indicatorId": "crime",
+          "value": 227.1,
+          "rank": 22,
+          "outOf": 34,
+          "percentile": 0.3636
+        },
+        {
+          "indicatorId": "education",
+          "value": 83.4,
+          "rank": 14,
+          "outOf": 36,
+          "percentile": 0.6286
+        },
+        {
+          "indicatorId": "health",
+          "value": 19.0,
+          "rank": 20,
+          "outOf": 34,
+          "percentile": 0.4242
+        }
+      ],
+      "topIssueId": "education"
+    },
+    {
+      "name": "Rajasthan",
+      "key": "Rajasthan",
+      "zone": "Northern",
+      "capital": "Jaipur",
+      "areaKm2": 342239.0,
+      "population2011": 68548437,
+      "government": {
+        "cmName": "Bhajan Lal Sharma",
+        "party": "BJP"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 23.8,
+          "rank": 2,
+          "outOf": 27,
+          "percentile": 0.9615
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 10.77,
+          "rank": 11,
+          "outOf": 36,
+          "percentile": 0.7143
+        },
+        {
+          "indicatorId": "crime",
+          "value": 390.4,
+          "rank": 11,
+          "outOf": 34,
+          "percentile": 0.697
+        },
+        {
+          "indicatorId": "education",
+          "value": 75.8,
+          "rank": 4,
+          "outOf": 36,
+          "percentile": 0.9143
+        },
+        {
+          "indicatorId": "health",
+          "value": 35.0,
+          "rank": 6,
+          "outOf": 34,
+          "percentile": 0.8485
+        }
+      ],
+      "topIssueId": "unemployment"
+    },
+    {
+      "name": "Sikkim",
+      "key": "Sikkim",
+      "zone": "North-Eastern",
+      "capital": "Gangtok",
+      "areaKm2": 7096.0,
+      "population2011": 610577,
+      "government": {
+        "cmName": "Prem Singh Tamang",
+        "party": "SKM"
+      },
+      "indicators": [
+        {
+          "indicatorId": "poverty",
+          "value": 2.1,
+          "rank": 29,
+          "outOf": 36,
+          "percentile": 0.2
+        },
+        {
+          "indicatorId": "crime",
+          "value": 103.9,
+          "rank": 33,
+          "outOf": 34,
+          "percentile": 0.0303
+        },
+        {
+          "indicatorId": "education",
+          "value": 84.7,
+          "rank": 18,
+          "outOf": 36,
+          "percentile": 0.5143
+        },
+        {
+          "indicatorId": "health",
+          "value": 5.0,
+          "rank": 32,
+          "outOf": 34,
+          "percentile": 0.0606
+        }
+      ],
+      "topIssueId": "education"
+    },
+    {
+      "name": "Tamil Nadu",
+      "key": "Tamil Nadu",
+      "zone": "Southern",
+      "capital": "Chennai",
+      "areaKm2": 130058.0,
+      "population2011": 72147030,
+      "government": {
+        "cmName": "C. Joseph Vijay",
+        "party": "TVK"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 4.1,
+          "rank": 23,
+          "outOf": 27,
+          "percentile": 0.1538
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 1.43,
+          "rank": 32,
+          "outOf": 36,
+          "percentile": 0.1143
+        },
+        {
+          "indicatorId": "crime",
+          "value": 701.4,
+          "rank": 5,
+          "outOf": 34,
+          "percentile": 0.8788
+        },
+        {
+          "indicatorId": "education",
+          "value": 85.5,
+          "rank": 20,
+          "outOf": 36,
+          "percentile": 0.4571
+        },
+        {
+          "indicatorId": "health",
+          "value": 8.0,
+          "rank": 27,
+          "outOf": 34,
+          "percentile": 0.2121
+        }
+      ],
+      "topIssueId": "crime"
+    },
+    {
+      "name": "Telangana",
+      "key": "Telangana",
+      "zone": "Southern",
+      "capital": "Hyderabad",
+      "areaKm2": 11207749.0,
+      "population2011": 3519397849,
+      "government": {
+        "cmName": "Revanth Reddy",
+        "party": "INC"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 8.3,
+          "rank": 17,
+          "outOf": 27,
+          "percentile": 0.3846
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 3.76,
+          "rank": 25,
+          "outOf": 36,
+          "percentile": 0.3143
+        },
+        {
+          "indicatorId": "crime",
+          "value": 481.6,
+          "rank": 8,
+          "outOf": 34,
+          "percentile": 0.7879
+        },
+        {
+          "indicatorId": "education",
+          "value": 76.9,
+          "rank": 6,
+          "outOf": 36,
+          "percentile": 0.8571
+        },
+        {
+          "indicatorId": "health",
+          "value": 23.0,
+          "rank": 15,
+          "outOf": 34,
+          "percentile": 0.5758
+        }
+      ],
+      "topIssueId": "education"
+    },
+    {
+      "name": "Tripura",
+      "key": "Tripura",
+      "zone": "North-Eastern",
+      "capital": "Agartala",
+      "areaKm2": 10491.0,
+      "population2011": 3673917,
+      "government": {
+        "cmName": "Manik Saha",
+        "party": "BJP"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 17.0,
+          "rank": 6,
+          "outOf": 27,
+          "percentile": 0.8077
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 11.49,
+          "rank": 9,
+          "outOf": 36,
+          "percentile": 0.7714
+        },
+        {
+          "indicatorId": "crime",
+          "value": 120.4,
+          "rank": 31,
+          "outOf": 34,
+          "percentile": 0.0909
+        },
+        {
+          "indicatorId": "education",
+          "value": 93.7,
+          "rank": 31,
+          "outOf": 36,
+          "percentile": 0.1429
+        },
+        {
+          "indicatorId": "health",
+          "value": 21.0,
+          "rank": 16,
+          "outOf": 34,
+          "percentile": 0.5455
+        }
+      ],
+      "topIssueId": "unemployment"
+    },
+    {
+      "name": "Uttar Pradesh",
+      "key": "Uttar Pradesh",
+      "zone": "Central",
+      "capital": "Lucknow",
+      "areaKm2": 240928.0,
+      "population2011": 199812341,
+      "government": {
+        "cmName": "Yogi Adityanath",
+        "party": "BJP"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 24.0,
+          "rank": 1,
+          "outOf": 27,
+          "percentile": 1.0
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 17.4,
+          "rank": 4,
+          "outOf": 36,
+          "percentile": 0.9143
+        },
+        {
+          "indicatorId": "crime",
+          "value": 335.3,
+          "rank": 15,
+          "outOf": 34,
+          "percentile": 0.5758
+        },
+        {
+          "indicatorId": "education",
+          "value": 78.2,
+          "rank": 7,
+          "outOf": 36,
+          "percentile": 0.8286
+        },
+        {
+          "indicatorId": "health",
+          "value": 41.0,
+          "rank": 2,
+          "outOf": 34,
+          "percentile": 0.9697
+        }
+      ],
+      "topIssueId": "unemployment"
+    },
+    {
+      "name": "Uttarakhand",
+      "key": "Uttarakhand",
+      "zone": "Central",
+      "capital": "Bhararisain (Summer) Dehradun (Winter)",
+      "areaKm2": 53483.0,
+      "population2011": 10086292,
+      "government": {
+        "cmName": "Pushkar Singh Dhami",
+        "party": "BJP"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 0.5,
+          "rank": 27,
+          "outOf": 27,
+          "percentile": 0.0
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 6.92,
+          "rank": 15,
+          "outOf": 36,
+          "percentile": 0.6
+        },
+        {
+          "indicatorId": "crime",
+          "value": 291.3,
+          "rank": 19,
+          "outOf": 34,
+          "percentile": 0.4545
+        },
+        {
+          "indicatorId": "education",
+          "value": 83.8,
+          "rank": 15,
+          "outOf": 36,
+          "percentile": 0.6
+        },
+        {
+          "indicatorId": "health",
+          "value": 27.0,
+          "rank": 11,
+          "outOf": 34,
+          "percentile": 0.697
+        }
+      ],
+      "topIssueId": "health"
+    },
+    {
+      "name": "West Bengal",
+      "key": "West Bengal",
+      "zone": "Eastern",
+      "capital": "Kolkata",
+      "areaKm2": 88752.0,
+      "population2011": 91276115,
+      "government": {
+        "cmName": "Suvendu Adhikari",
+        "party": "BJP"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 3.3,
+          "rank": 25,
+          "outOf": 27,
+          "percentile": 0.0769
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 8.6,
+          "rank": 14,
+          "outOf": 36,
+          "percentile": 0.6286
+        },
+        {
+          "indicatorId": "crime",
+          "value": 181.6,
+          "rank": 27,
+          "outOf": 34,
+          "percentile": 0.2121
+        },
+        {
+          "indicatorId": "education",
+          "value": 82.6,
+          "rank": 12,
+          "outOf": 36,
+          "percentile": 0.6857
+        },
+        {
+          "indicatorId": "health",
+          "value": 20.0,
+          "rank": 19,
+          "outOf": 34,
+          "percentile": 0.4545
+        }
+      ],
+      "topIssueId": "education"
+    },
+    {
+      "name": "Andaman and Nicobar Islands",
+      "key": "Andaman and Nicobar Islands",
+      "zone": "Southern",
+      "capital": "Port Blair",
+      "areaKm2": 8249.0,
+      "population2011": 380581,
+      "government": null,
+      "indicators": [
+        {
+          "indicatorId": "poverty",
+          "value": 1.63,
+          "rank": 31,
+          "outOf": 36,
+          "percentile": 0.1429
+        },
+        {
+          "indicatorId": "education",
+          "value": 91.1,
+          "rank": 26,
+          "outOf": 36,
+          "percentile": 0.2857
+        },
+        {
+          "indicatorId": "health",
+          "value": 7.0,
+          "rank": 30,
+          "outOf": 34,
+          "percentile": 0.1212
+        }
+      ],
+      "topIssueId": "education"
+    },
+    {
+      "name": "Chandigarh",
+      "key": "Chandigarh",
+      "zone": "Northern",
+      "capital": "Chandigarh",
+      "areaKm2": 114.0,
+      "population2011": 1055450,
+      "government": null,
+      "indicators": [
+        {
+          "indicatorId": "poverty",
+          "value": 2.62,
+          "rank": 28,
+          "outOf": 36,
+          "percentile": 0.2286
+        },
+        {
+          "indicatorId": "crime",
+          "value": 338.9,
+          "rank": 14,
+          "outOf": 34,
+          "percentile": 0.6061
+        },
+        {
+          "indicatorId": "education",
+          "value": 93.7,
+          "rank": 30,
+          "outOf": 36,
+          "percentile": 0.1714
+        },
+        {
+          "indicatorId": "health",
+          "value": 13.0,
+          "rank": 23,
+          "outOf": 34,
+          "percentile": 0.3333
+        }
+      ],
+      "topIssueId": "crime"
+    },
+    {
+      "name": "Dadra and Nagar Haveli and Daman and Diu",
+      "key": "Dadra and Nagar Haveli and Daman and Diu",
+      "zone": "Western",
+      "capital": "Daman",
+      "areaKm2": 603.0,
+      "population2011": 587106,
+      "government": null,
+      "indicators": [
+        {
+          "indicatorId": "poverty",
+          "value": 6.06,
+          "rank": 16,
+          "outOf": 36,
+          "percentile": 0.5714
+        },
+        {
+          "indicatorId": "education",
+          "value": 87.8,
+          "rank": 24,
+          "outOf": 36,
+          "percentile": 0.3429
+        }
+      ],
+      "topIssueId": "poverty"
+    },
+    {
+      "name": "Delhi",
+      "key": "Delhi",
+      "zone": "Northern",
+      "capital": "New Delhi",
+      "areaKm2": 1484.0,
+      "population2011": 16787941,
+      "government": {
+        "cmName": "Rekha Gupta",
+        "party": "BJP"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 9.6,
+          "rank": 15,
+          "outOf": 27,
+          "percentile": 0.4615
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 2.97,
+          "rank": 26,
+          "outOf": 36,
+          "percentile": 0.2857
+        },
+        {
+          "indicatorId": "crime",
+          "value": 1602.0,
+          "rank": 2,
+          "outOf": 34,
+          "percentile": 0.9697
+        },
+        {
+          "indicatorId": "education",
+          "value": 86.9,
+          "rank": 21,
+          "outOf": 36,
+          "percentile": 0.4286
+        },
+        {
+          "indicatorId": "health",
+          "value": 11.0,
+          "rank": 24,
+          "outOf": 34,
+          "percentile": 0.303
+        }
+      ],
+      "topIssueId": "crime"
+    },
+    {
+      "name": "Jammu and Kashmir",
+      "key": "Jammu and Kashmir",
+      "zone": "Northern",
+      "capital": "Srinagar (Summer) Jammu (Winter)",
+      "areaKm2": 42241.0,
+      "population2011": 12258433,
+      "government": {
+        "cmName": "Omar Abdullah",
+        "party": "JKNC"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 23.2,
+          "rank": 3,
+          "outOf": 27,
+          "percentile": 0.9231
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 2.81,
+          "rank": 27,
+          "outOf": 36,
+          "percentile": 0.2571
+        },
+        {
+          "indicatorId": "crime",
+          "value": 217.0,
+          "rank": 23,
+          "outOf": 34,
+          "percentile": 0.3333
+        },
+        {
+          "indicatorId": "education",
+          "value": 82.0,
+          "rank": 11,
+          "outOf": 36,
+          "percentile": 0.7143
+        },
+        {
+          "indicatorId": "health",
+          "value": 20.0,
+          "rank": 18,
+          "outOf": 34,
+          "percentile": 0.4848
+        }
+      ],
+      "topIssueId": "unemployment"
+    },
+    {
+      "name": "Ladakh",
+      "key": "Ladakh",
+      "zone": "Northern",
+      "capital": "Leh (Summer) Kargil (Winter)",
+      "areaKm2": 59146.0,
+      "population2011": 290492,
+      "government": null,
+      "indicators": [
+        {
+          "indicatorId": "poverty",
+          "value": 1.73,
+          "rank": 30,
+          "outOf": 36,
+          "percentile": 0.1714
+        },
+        {
+          "indicatorId": "crime",
+          "value": 173.4,
+          "rank": 29,
+          "outOf": 34,
+          "percentile": 0.1515
+        },
+        {
+          "indicatorId": "education",
+          "value": 81.0,
+          "rank": 10,
+          "outOf": 36,
+          "percentile": 0.7429
+        }
+      ],
+      "topIssueId": "education"
+    },
+    {
+      "name": "Lakshadweep",
+      "key": "Lakshadweep",
+      "zone": "Southern",
+      "capital": "Kavaratti",
+      "areaKm2": 32.0,
+      "population2011": 64473,
+      "government": null,
+      "indicators": [
+        {
+          "indicatorId": "poverty",
+          "value": 0.84,
+          "rank": 33,
+          "outOf": 36,
+          "percentile": 0.0857
+        },
+        {
+          "indicatorId": "crime",
+          "value": 184.1,
+          "rank": 26,
+          "outOf": 34,
+          "percentile": 0.2424
+        },
+        {
+          "indicatorId": "education",
+          "value": 97.3,
+          "rank": 35,
+          "outOf": 36,
+          "percentile": 0.0286
+        },
+        {
+          "indicatorId": "health",
+          "value": 8.0,
+          "rank": 29,
+          "outOf": 34,
+          "percentile": 0.1515
+        }
+      ],
+      "topIssueId": "crime"
+    },
+    {
+      "name": "Puducherry",
+      "key": "Puducherry",
+      "zone": "Southern",
+      "capital": "Pondicherry",
+      "areaKm2": 479.0,
+      "population2011": 1247953,
+      "government": {
+        "cmName": "N. Rangaswamy",
+        "party": "AINRC"
+      },
+      "indicators": [
+        {
+          "indicatorId": "unemployment",
+          "value": 7.3,
+          "rank": 18,
+          "outOf": 27,
+          "percentile": 0.3462
+        },
+        {
+          "indicatorId": "poverty",
+          "value": 0.58,
+          "rank": 34,
+          "outOf": 36,
+          "percentile": 0.0571
+        },
+        {
+          "indicatorId": "crime",
+          "value": 305.5,
+          "rank": 18,
+          "outOf": 34,
+          "percentile": 0.4848
+        },
+        {
+          "indicatorId": "education",
+          "value": 92.7,
+          "rank": 28,
+          "outOf": 36,
+          "percentile": 0.2286
+        },
+        {
+          "indicatorId": "health",
+          "value": 9.0,
+          "rank": 26,
+          "outOf": 34,
+          "percentile": 0.2424
+        }
+      ],
+      "topIssueId": "crime"
+    }
+  ]
+}

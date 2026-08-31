@@ -1,0 +1,31 @@
+name: Suggest a source / feedback
+description: Know a fresher or more credible source for one of the tracked indicators? Spotted something wrong? Tell us.
+title: "[Suggestion] "
+labels: ["data-suggestion"]
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: What kind of suggestion is this?
+      options:
+        - A fresher/better source for an existing indicator
+        - A new indicator/category worth tracking
+        - Something looks wrong or out of date
+        - General feedback
+    validations:
+      required: true
+  - type: input
+    id: source-url
+    attributes:
+      label: Source link (if suggesting a source)
+      description: A link to the government report, official dataset, or publication
+      placeholder: https://
+    validations:
+      required: false
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: What should change, and why is this source credible?
+    validations:
+      required: true

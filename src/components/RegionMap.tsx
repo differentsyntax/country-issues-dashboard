@@ -1,13 +1,12 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
-import { motion } from "framer-motion";
 import { MAP_HEIGHT, MAP_WIDTH, centroidFor, pathGenerator, statesGeo } from "@/lib/geo";
-import { periods, severityForState, states, stateByKey } from "@/lib/data";
+import { effectiveTopIssueId, indicatorById, indicators, stateByKey } from "@/lib/data";
+import { colorForIndicator, sequentialColor, FALLBACK_COLOR } from "@/lib/indicatorColors";
+import { resolveIcon } from "@/lib/icon";
 import { useDashboardStore } from "@/lib/store";
-
-const SEVERITY_COLORS = ["var(--sev-0)", "var(--sev-1)", "var(--sev-2)", "var(--sev-3)"];
-const SEVERITY_LABELS = ["Low relative pressure", "Moderate", "Elevated", "High relative pressure"];
+import { useLiveAqi } from "@/lib/useLiveAqi";
 
 // States/UTs small enough that a plain click target on the path alone is impractical.
 const SMALL_MARKERS = new Set([
@@ -23,20 +22,13 @@ const SMALL_MARKERS = new Set([
 
 export function RegionMap() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const periodIndex = useDashboardStore((s) => s.periodIndex);
   const selectedStateKey = useDashboardStore((s) => s.selectedStateKey);
   const hoveredStateKey = useDashboardStore((s) => s.hoveredStateKey);
+  const activeIndicatorId = useDashboardStore((s) => s.activeIndicatorId);
   const selectState = useDashboardStore((s) => s.selectState);
   const hoverState = useDashboardStore((s) => s.hoverState);
   const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number } | null>(null);
-
-  const period = periods[periodIndex].period;
-
-  const severities = useMemo(() => {
-    const map = new Map<string, number>();
-    for (const s of states) map.set(s.key, severityForState(s, period, states));
-    return map;
-  }, [period]);
+  const liveAqi = useLiveAqi();
 
   function handleMove(e: React.MouseEvent) {
     if (!containerRef.current) return;
@@ -44,8 +36,44 @@ export function RegionMap() {
     setTooltipPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
   }
 
+  // For each state, resolve which indicator is driving its color and how
+  // severe that reading is, in both the default categorical mode and the
+  // single-indicator picker mode.
+  const stateColor = useMemo(() => {
+    const map = new Map<string, { color: string; indicatorId: string | null }>();
+    for (const state of stateByKey.values()) {
+      if (activeIndicatorId) {
+        const live = activeIndicatorId === "pollution" ? liveAqi.severityByState[state.key] : undefined;
+        const value = live ?? state.indicators.find((i) => i.indicatorId === activeIndicatorId);
+        map.set(state.key, {
+          indicatorId: activeIndicatorId,
+          color: value ? sequentialColor(activeIndicatorId, value.percentile) : FALLBACK_COLOR,
+        });
+      } else {
+        const topId = effectiveTopIssueId(state, liveAqi.severityByState[state.key]);
+        map.set(state.key, { indicatorId: topId, color: colorForIndicator(topId) });
+      }
+    }
+    return map;
+  }, [activeIndicatorId, liveAqi.severityByState]);
+
+  // Legend: in categorical mode, only the indicators that actually appear as
+  // someone's dominant issue; in single-indicator mode, a min–max gradient
+  // key for that one indicator.
+  const categoricalLegend = useMemo(() => {
+    if (activeIndicatorId) return [];
+    const present = new Set<string>();
+    for (const { indicatorId } of stateColor.values()) {
+      if (indicatorId) present.add(indicatorId);
+    }
+    return indicators
+      .filter((i) => present.has(i.id))
+      .map((i) => ({ id: i.id, label: i.label, color: colorForIndicator(i.id) }));
+  }, [activeIndicatorId, stateColor]);
+
   const hoveredState = hoveredStateKey ? stateByKey.get(hoveredStateKey) : null;
-  const hoveredEntry = hoveredState?.series.find((s) => s.period === period);
+  const hoveredColorInfo = hoveredStateKey ? stateColor.get(hoveredStateKey) : null;
+  const hoveredIndicator = hoveredColorInfo?.indicatorId ? indicatorById.get(hoveredColorInfo.indicatorId) : null;
 
   return (
     <div
@@ -58,7 +86,7 @@ export function RegionMap() {
         viewBox={`0 0 ${MAP_WIDTH} ${MAP_HEIGHT}`}
         className="h-auto w-full"
         role="img"
-        aria-label="Map of India, states colored by relative civic-issue pressure"
+        aria-label="Map of India, states colored by dominant civic indicator"
       >
         <defs>
           <filter id="state-glow" x="-40%" y="-40%" width="180%" height="180%">
@@ -69,19 +97,19 @@ export function RegionMap() {
           {statesGeo.features.map((feature) => {
             const key = feature.properties.st_nm;
             const d = pathGenerator(feature) ?? undefined;
-            const sev = severities.get(key) ?? 0;
+            const fill = stateColor.get(key)?.color ?? FALLBACK_COLOR;
             const isSelected = selectedStateKey === key;
             const isHovered = hoveredStateKey === key;
             return (
-              <motion.path
+              <path
                 key={key}
                 d={d}
                 className="state-shape"
+                fill={fill}
+                opacity={isHovered ? 1 : 0.92}
                 stroke={isSelected ? "#f2f4f8" : "rgba(6,9,15,0.65)"}
                 strokeWidth={isSelected ? 1.6 : 0.6}
                 filter={isHovered || isSelected ? "url(#state-glow)" : undefined}
-                animate={{ fill: SEVERITY_COLORS[sev], opacity: isHovered ? 1 : 0.92 }}
-                transition={{ duration: 0.45, ease: "easeOut" }}
                 onMouseEnter={() => hoverState(key)}
                 onClick={() => selectState(isSelected ? null : key)}
                 tabIndex={0}
@@ -100,7 +128,7 @@ export function RegionMap() {
           {[...SMALL_MARKERS].map((key) => {
             const c = centroidFor(key);
             if (!c) return null;
-            const sev = severities.get(key) ?? 0;
+            const fill = stateColor.get(key)?.color ?? FALLBACK_COLOR;
             const isSelected = selectedStateKey === key;
             return (
               <g key={`marker-${key}`}>
@@ -117,7 +145,7 @@ export function RegionMap() {
                   cx={c[0]}
                   cy={c[1]}
                   r={isSelected ? 5.5 : 4}
-                  fill={SEVERITY_COLORS[sev]}
+                  fill={fill}
                   stroke="#f2f4f8"
                   strokeWidth={isSelected ? 1.4 : 0.8}
                   className="pointer-events-none"
@@ -146,7 +174,7 @@ export function RegionMap() {
         </g>
       </svg>
 
-      {hoveredState && hoveredEntry && tooltipPos && (
+      {hoveredState && hoveredIndicator && tooltipPos && (
         <div
           className="glass-card pointer-events-none absolute z-10 w-52 rounded-xl p-3 text-xs shadow-2xl"
           style={{
@@ -155,22 +183,36 @@ export function RegionMap() {
           }}
         >
           <p className="mb-1 text-sm font-semibold text-white">{hoveredState.name}</p>
-          {hoveredEntry.topIssues.slice(0, 1).map((issue) => (
-            <p key={issue.categoryId} className="text-white/60">
-              Top issue: <span className="text-white/85">{issue.label}</span>
-            </p>
-          ))}
+          <p className="flex items-center gap-1.5 text-white/60">
+            {(() => {
+              const Icon = resolveIcon(hoveredIndicator.icon);
+              return <Icon className="h-3.5 w-3.5" strokeWidth={1.75} />;
+            })()}
+            <span className="text-white/85">{hoveredIndicator.label}</span>
+          </p>
           <p className="mt-1 text-[10px] text-white/35">Click for full detail</p>
         </div>
       )}
 
       <div className="mt-3 flex flex-wrap items-center justify-center gap-3 text-[10px] text-white/45">
-        {SEVERITY_COLORS.map((c, i) => (
-          <span key={i} className="flex items-center gap-1.5">
-            <span className="h-2.5 w-2.5 rounded-full" style={{ background: c }} />
-            {SEVERITY_LABELS[i]}
+        {activeIndicatorId ? (
+          <span className="flex items-center gap-2">
+            <span
+              className="h-2.5 w-24 rounded-full"
+              style={{
+                background: `linear-gradient(to right, ${sequentialColor(activeIndicatorId, 0)}, ${sequentialColor(activeIndicatorId, 1)})`,
+              }}
+            />
+            Lower <span className="mx-1">&rarr;</span> Higher severity
           </span>
-        ))}
+        ) : (
+          categoricalLegend.map((item) => (
+            <span key={item.id} className="flex items-center gap-1.5">
+              <span className="h-2.5 w-2.5 rounded-full" style={{ background: item.color }} />
+              {item.label}
+            </span>
+          ))
+        )}
       </div>
     </div>
   );

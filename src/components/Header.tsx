@@ -16,8 +16,8 @@ export function Header() {
           What&rsquo;s troubling {country.name} right now
         </h1>
         <p className="max-w-2xl text-sm text-white/50">
-          Top 5 issues nationally, and the top 3 for every state &amp; UT, tracked on the same
-          monthly cadence {country.name}&rsquo;s public grievance system reports on.
+          Real, cited government &amp; official data on the issues facing every state &amp; UT
+          &mdash; unemployment, poverty, crime, health, education, and live air quality.
         </p>
       </div>
       <MethodologyNote />
