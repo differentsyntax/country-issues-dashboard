@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: `${country.name} Civic Issues Tracker`,
-  description: `An interactive dashboard of ${country.name}'s top civic & administrative grievance issues, nationally and state-by-state.`,
+  description: `An interactive dashboard of ${country.name}'s real, publicly-sourced civic indicators by state — economy, health, water, crime, air quality, and ruling government.`,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

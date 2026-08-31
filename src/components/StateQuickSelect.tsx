@@ -1,27 +1,28 @@
 "use client";
 
 import { useMemo } from "react";
-import { periods, states } from "@/lib/data";
+import { states } from "@/lib/data";
 import { useDashboardStore } from "@/lib/store";
 
+/** A plain, keyboard/screen-reader-friendly list of every state as buttons —
+ * an easier click/tap target than the map's small SVG shapes. Ranked by
+ * worst overall severity percentile so the states under the most pressure
+ * surface first. */
 export function StateQuickSelect() {
-  const periodIndex = useDashboardStore((s) => s.periodIndex);
   const selectedStateKey = useDashboardStore((s) => s.selectedStateKey);
   const selectState = useDashboardStore((s) => s.selectState);
-  const period = periods[periodIndex].period;
 
   const ranked = useMemo(() => {
-    return [...states]
-      .map((s) => ({
-        state: s,
-        total: s.series.find((e) => e.period === period)?.totalGrievances ?? 0,
-      }))
-      .sort((a, b) => b.total - a.total);
-  }, [period]);
+    return [...states].sort((a, b) => {
+      const aTop = Math.max(0, ...a.indicators.map((i) => i.percentile));
+      const bTop = Math.max(0, ...b.indicators.map((i) => i.percentile));
+      return bTop - aTop;
+    });
+  }, []);
 
   return (
     <div className="flex flex-wrap gap-1.5">
-      {ranked.map(({ state }) => {
+      {ranked.map((state) => {
         const isSelected = selectedStateKey === state.key;
         return (
           <button

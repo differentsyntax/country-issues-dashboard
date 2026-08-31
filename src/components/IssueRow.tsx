@@ -1,28 +1,33 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, ArrowUp } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { resolveIcon } from "@/lib/icon";
-import { formatCount } from "@/lib/data";
-import type { TopIssue } from "@/lib/types";
+import { formatIndicatorValue, indicatorById } from "@/lib/data";
+import type { StateIndicatorValue } from "@/lib/types";
 
 const RANK_ACCENTS = ["var(--accent-rose)", "var(--accent-amber)", "var(--accent-teal)", "var(--accent-blue)", "var(--accent-violet)"];
 
+function ordinal(n: number): string {
+  const s = ["th", "st", "nd", "rd"];
+  const v = n % 100;
+  return `${n}${s[(v - 20) % 10] ?? s[v] ?? s[0]}`;
+}
+
 export function IssueRow({
-  issue,
+  value,
   rank,
-  maxCount,
   compact = false,
 }: {
-  issue: TopIssue;
+  value: StateIndicatorValue;
   rank: number;
-  maxCount: number;
   compact?: boolean;
 }) {
-  const Icon = resolveIcon(issue.icon);
+  const indicator = indicatorById.get(value.indicatorId);
+  if (!indicator) return null;
+  const Icon = resolveIcon(indicator.icon);
   const accent = RANK_ACCENTS[rank % RANK_ACCENTS.length];
-  const pct = Math.max(6, Math.round((issue.count / Math.max(1, maxCount)) * 100));
-  const trendUp = (issue.deltaPct ?? 0) > 0;
+  const pct = Math.max(6, Math.round(value.percentile * 100));
 
   return (
     <motion.li
@@ -49,22 +54,23 @@ export function IssueRow({
         </span>
         {/* eslint-disable-next-line react-hooks/static-components -- resolveIcon is a pure lookup into a static icon map; identity is stable across renders */}
         <Icon className="h-4 w-4 shrink-0 text-white/50" strokeWidth={1.75} />
-        <span className={`min-w-0 flex-1 truncate ${compact ? "text-[13px]" : "text-sm"} text-white/85`}>
-          {issue.label}
-        </span>
-        <span className="shrink-0 font-mono text-[13px] tabular-nums text-white/70">
-          {formatCount(issue.count)}
-        </span>
-        {issue.deltaPct !== null && (
-          <span
-            className={`flex shrink-0 items-center gap-0.5 text-[11px] font-medium tabular-nums ${
-              trendUp ? "text-rose-400" : "text-teal-400"
-            }`}
-          >
-            {trendUp ? <ArrowUp className="h-3 w-3" /> : <ArrowDown className="h-3 w-3" />}
-            {Math.abs(issue.deltaPct)}%
-          </span>
-        )}
+        <div className="min-w-0 flex-1">
+          <p className={`truncate ${compact ? "text-[13px]" : "text-sm"} text-white/85`}>{indicator.label}</p>
+          <p className="truncate text-[10px] text-white/35">
+            {ordinal(value.rank)} highest of {value.outOf}
+            {indicator.asOf ? ` · as of ${indicator.asOf}` : indicator.live ? " · live" : ""}
+          </p>
+        </div>
+        <a
+          href={indicator.sourceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex shrink-0 items-center gap-1 font-mono text-[13px] tabular-nums text-white/70 transition hover:text-teal-300"
+          title={`Source: ${indicator.sourceName}`}
+        >
+          {formatIndicatorValue(value.value, indicator)}
+          <ExternalLink className="h-3 w-3 opacity-50" />
+        </a>
       </div>
     </motion.li>
   );

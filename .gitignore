@@ -1,6 +1,7 @@
 node_modules
 .next
 .env*
+!.env.example
 npm-debug.log*
 .DS_Store
 .claude/
@@ -11,3 +12,4 @@ __pycache__/
 .idea/
 /AGENTS.md
 /CLAUDE.md
+.venv*/

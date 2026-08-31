@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp, ExternalLink } from "lucide-react";
+import { resolveIcon } from "@/lib/icon";
+import { indicators, dataset } from "@/lib/data";
 
 export function MethodologyNote() {
   const [expanded, setExpanded] = useState(false);
@@ -15,7 +17,7 @@ export function MethodologyNote() {
         className="flex w-full items-center gap-3 px-4 py-3 text-left hover:bg-white/5 transition-colors"
       >
         <span className="flex-1 text-sm font-medium text-white/70">
-          About this data — modeled on real government reporting categories & cadence
+          Sources &amp; methodology — every number below is real and cited
         </span>
         {expanded ? (
           <ChevronUp className="h-4 w-4 text-white/50 flex-shrink-0" />
@@ -25,18 +27,75 @@ export function MethodologyNote() {
       </button>
 
       {expanded && (
-        <div id="methodology-note-body" className="border-t border-white/10 px-4 py-3 space-y-3 text-sm text-white/60">
+        <div id="methodology-note-body" className="border-t border-white/10 px-4 py-3 space-y-4 text-sm text-white/60">
           <p>
-            The monthly reporting cadence you see here mirrors India&apos;s real government grievance-reporting system: the Department of Administrative Reforms &amp; Public Grievances (DARPG) publishes a numbered monthly CPGRAMS report covering ministries, departments and states/UTs. The issue categories in this dashboard (power, water, land records, pensions, and so on) are everyday, human-readable stand-ins for the kinds of departments and themes those real reports cover.
+            Every indicator on this dashboard comes from a real, published government or
+            official source — nothing here is simulated. Most of these sources publish
+            annually or periodically rather than daily, so each indicator below shows
+            exactly when its underlying figure is from, not a fabricated &ldquo;live&rdquo;
+            date. State severity rankings are computed by comparing each state&apos;s value
+            against every other state with data for that same indicator.
           </p>
+
+          <ul className="flex flex-col gap-2">
+            {indicators.map((ind) => {
+              const Icon = resolveIcon(ind.icon);
+              return (
+                <li key={ind.id} className="flex items-start gap-2.5 rounded-lg bg-white/[0.03] p-2.5">
+                  <Icon className="mt-0.5 h-4 w-4 shrink-0 text-white/40" strokeWidth={1.75} />
+                  <div className="min-w-0 flex-1">
+                    <p className="text-white/85">{ind.label}</p>
+                    <p className="text-[11px] text-white/40">
+                      {ind.sourceName}
+                      {ind.live ? " · fetched live per page view" : ind.asOf ? ` · as of ${ind.asOf}` : ""}
+                    </p>
+                  </div>
+                  <a
+                    href={ind.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="shrink-0 text-white/30 transition hover:text-teal-300"
+                    aria-label={`Source for ${ind.label}`}
+                  >
+                    <ExternalLink className="h-3.5 w-3.5" />
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+
           <p>
-            However, the exact per-state, per-category complaint counts shown here are not live data pulled from a government API. The official data sources require an API key and, in any case, don&apos;t publicly release a full per-state-per-category breakdown at this granularity. Instead, this dashboard uses a reproducible simulation seeded from real regional patterns.
+            Ruling government (Chief Minister + party) is sourced from{" "}
+            <a
+              href={dataset.meta.governmentSourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-teal-300 underline decoration-teal-300/30 hover:decoration-teal-300"
+            >
+              {dataset.meta.governmentSourceName}
+            </a>
+            . State context (zone, capital, area, population) is from{" "}
+            <a
+              href={dataset.meta.contextSourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-teal-300 underline decoration-teal-300/30 hover:decoration-teal-300"
+            >
+              {dataset.meta.contextSourceName}
+            </a>
+            .
           </p>
-          <p>
-            This means: water-scarcity issues are weighted higher in arid states like Rajasthan; monsoon flooding peaks in states like Assam and Kerala during rainy months; winter air pollution is higher in Delhi-NCR; power complaints correlate with agricultural regions. The result is geographically sensible and deterministic—regenerating the dataset produces the same numbers.
+
+          <p className="text-white/50">
+            <strong className="text-white/70">Deliberately excluded:</strong> NCRB also
+            publishes a state-wise suicide-rate list. This dashboard does not fetch or use
+            it — ranking or coloring states by suicide statistics on a map is not something
+            this project does.
           </p>
-          <p>
-            The takeaway: the category taxonomy and monthly rhythm are real and grounded in published government reports. The specific numbers are a careful simulation, not live, so they work well for understanding patterns and trends, but should not be cited as definitive grievance counts.
+
+          <p className="text-[11px] text-white/35">
+            Refreshed automatically on a schedule — see the README for the update pipeline.
+            Last refreshed: {new Date(dataset.meta.generatedAt).toLocaleDateString("en-IN", { year: "numeric", month: "long", day: "numeric" })}.
           </p>
         </div>
       )}
