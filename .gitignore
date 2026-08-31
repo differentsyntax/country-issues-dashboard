@@ -1,0 +1,11 @@
+node_modules
+.next
+.env*
+npm-debug.log*
+.DS_Store
+.claude/
+*.tsbuildinfo
+__pycache__/
+*.pyc
+.vscode/
+.idea/
