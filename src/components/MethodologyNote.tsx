@@ -29,12 +29,8 @@ export function MethodologyNote() {
       {expanded && (
         <div id="methodology-note-body" className="border-t border-white/10 px-4 py-3 space-y-4 text-sm text-white/60">
           <p>
-            Every indicator on this dashboard comes from a real, published government or
-            official source — nothing here is simulated. Most of these sources publish
-            annually or periodically rather than daily, so each indicator below shows
-            exactly when its underlying figure is from, not a fabricated &ldquo;live&rdquo;
-            date. State severity rankings are computed by comparing each state&apos;s value
-            against every other state with data for that same indicator.
+            Every indicator comes from a real, published government or official source —
+            nothing here is simulated. Each one shows exactly when its figure is from.
           </p>
 
           <ul className="flex flex-col gap-2">
@@ -87,8 +83,7 @@ export function MethodologyNote() {
           </p>
 
           <p className="text-[11px] text-white/35">
-            Refreshed automatically on a schedule — see the README for the update pipeline.
-            Last refreshed: {new Date(dataset.meta.generatedAt).toLocaleDateString("en-IN", { year: "numeric", month: "long", day: "numeric" })}.
+            Last refreshed {new Date(dataset.meta.generatedAt).toLocaleDateString("en-IN", { year: "numeric", month: "long", day: "numeric" })}.
           </p>
         </div>
       )}

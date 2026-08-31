@@ -43,10 +43,12 @@ the data layer structured so more countries can be added as siblings.
 
 ## How the Data Works
 
-Six of the seven tracked indicators come from real, individually-cited
+Five of the six tracked indicators come from real, individually-cited
 government/official sources, fetched from their Wikipedia-hosted "List of
 Indian states by X" pages (each of which cites its own primary source —
-PLFS, NCRB, NITI Aayog, Census, SRS):
+PLFS, NCRB, NITI Aayog, SRS). Only indicators with a real figure from
+2018–19 or later are included — older sources (e.g. the 2011 census figure
+for water access) are deliberately left out rather than shown as current:
 
 | Indicator | Real source | Cadence |
 |---|---|---|
@@ -55,7 +57,6 @@ PLFS, NCRB, NITI Aayog, Census, SRS):
 | Crime Rate | National Crime Records Bureau (NCRB) | as of 2023 |
 | Education Access (literacy) | PLFS report 2024 | as of 2024 |
 | Health (Infant Mortality) | Sample Registration System (SRS) | as of 2019 |
-| Water Supply & Scarcity | Census of India 2011 | as of 2011 |
 | Air Quality | [AQICN](https://aqicn.org/api/) World Air Quality Index | **live**, fetched per page view |
 
 Ruling government (Chief Minister + party) and state context (zone, capital,

@@ -7,7 +7,6 @@ export const INDICATOR_COLORS: Record<string, string> = {
   crime: "#dc2626", // red
   education: "#38bdf8", // sky blue
   health: "#8b7cf6", // violet
-  water: "#2dd4bf", // teal
   pollution: "#94a3b8", // slate/smog grey
 };
 

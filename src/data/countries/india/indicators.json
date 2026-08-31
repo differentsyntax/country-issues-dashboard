@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "India Civic Issues Tracker",
-    "generatedAt": "2026-08-31T02:53:11.002950+00:00",
+    "generatedAt": "2026-08-31T03:01:06.273376+00:00",
     "generatedNote": "Every figure below comes from a real, cited, published source (see each indicator's source link). Nothing here is simulated. Most sources publish annually or periodically, not daily — see each indicator's 'as of' date. Air Quality is fetched live per pageview instead of stored here.",
     "indicators": [
       {
@@ -53,16 +53,6 @@
         "asOf": "2019",
         "sourceName": "Sample Registration System (SRS), Ministry of Health — via Wikipedia",
         "sourceUrl": "https://en.wikipedia.org/wiki/List_of_Indian_states_by_infant_mortality_rate"
-      },
-      {
-        "id": "water",
-        "label": "Water Supply & Scarcity",
-        "icon": "droplet",
-        "unit": "% households with access",
-        "direction": "lowerIsWorse",
-        "asOf": "2011",
-        "sourceName": "Census of India 2011 — via Wikipedia",
-        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_Indian_states_and_union_territories_by_access_to_safe_drinking_water"
       },
       {
         "id": "pollution",
@@ -254,13 +244,6 @@
           "rank": 14,
           "outOf": 34,
           "percentile": 0.6061
-        },
-        {
-          "indicatorId": "water",
-          "value": 33.5,
-          "rank": 2,
-          "outOf": 33,
-          "percentile": 0.9688
         }
       ],
       "topIssueId": "education"
@@ -311,13 +294,6 @@
           "rank": 8,
           "outOf": 34,
           "percentile": 0.7879
-        },
-        {
-          "indicatorId": "water",
-          "value": 78.6,
-          "rank": 14,
-          "outOf": 33,
-          "percentile": 0.5938
         }
       ],
       "topIssueId": "unemployment"
@@ -368,13 +344,6 @@
           "rank": 4,
           "outOf": 34,
           "percentile": 0.9091
-        },
-        {
-          "indicatorId": "water",
-          "value": 69.9,
-          "rank": 9,
-          "outOf": 33,
-          "percentile": 0.75
         }
       ],
       "topIssueId": "health"
@@ -425,13 +394,6 @@
           "rank": 9,
           "outOf": 34,
           "percentile": 0.7576
-        },
-        {
-          "indicatorId": "water",
-          "value": 94.0,
-          "rank": 28,
-          "outOf": 33,
-          "percentile": 0.1562
         }
       ],
       "topIssueId": "poverty"
@@ -482,13 +444,6 @@
           "rank": 3,
           "outOf": 34,
           "percentile": 0.9394
-        },
-        {
-          "indicatorId": "water",
-          "value": 86.3,
-          "rank": 19,
-          "outOf": 33,
-          "percentile": 0.4375
         }
       ],
       "topIssueId": "health"
@@ -539,13 +494,6 @@
           "rank": 28,
           "outOf": 34,
           "percentile": 0.1818
-        },
-        {
-          "indicatorId": "water",
-          "value": 85.7,
-          "rank": 18,
-          "outOf": 33,
-          "percentile": 0.4688
         }
       ],
       "topIssueId": "unemployment"
@@ -596,13 +544,6 @@
           "rank": 13,
           "outOf": 34,
           "percentile": 0.6364
-        },
-        {
-          "indicatorId": "water",
-          "value": 90.3,
-          "rank": 21,
-          "outOf": 33,
-          "percentile": 0.375
         }
       ],
       "topIssueId": "crime"
@@ -653,13 +594,6 @@
           "rank": 12,
           "outOf": 34,
           "percentile": 0.6667
-        },
-        {
-          "indicatorId": "water",
-          "value": 93.8,
-          "rank": 27,
-          "outOf": 33,
-          "percentile": 0.1875
         }
       ],
       "topIssueId": "crime"
@@ -710,13 +644,6 @@
           "rank": 21,
           "outOf": 34,
           "percentile": 0.3939
-        },
-        {
-          "indicatorId": "water",
-          "value": 93.7,
-          "rank": 26,
-          "outOf": 33,
-          "percentile": 0.2188
         }
       ],
       "topIssueId": "unemployment"
@@ -767,13 +694,6 @@
           "rank": 10,
           "outOf": 34,
           "percentile": 0.7273
-        },
-        {
-          "indicatorId": "water",
-          "value": 60.1,
-          "rank": 6,
-          "outOf": 33,
-          "percentile": 0.8438
         }
       ],
       "topIssueId": "poverty"
@@ -824,13 +744,6 @@
           "rank": 17,
           "outOf": 34,
           "percentile": 0.5152
-        },
-        {
-          "indicatorId": "water",
-          "value": 87.5,
-          "rank": 20,
-          "outOf": 33,
-          "percentile": 0.4062
         }
       ],
       "topIssueId": "education"
@@ -881,13 +794,6 @@
           "rank": 31,
           "outOf": 34,
           "percentile": 0.0909
-        },
-        {
-          "indicatorId": "water",
-          "value": 78.1,
-          "rank": 13,
-          "outOf": 33,
-          "percentile": 0.625
         }
       ],
       "topIssueId": "crime"
@@ -938,13 +844,6 @@
           "rank": 1,
           "outOf": 34,
           "percentile": 1.0
-        },
-        {
-          "indicatorId": "water",
-          "value": 78.0,
-          "rank": 12,
-          "outOf": 33,
-          "percentile": 0.6562
         }
       ],
       "topIssueId": "health"
@@ -995,13 +894,6 @@
           "rank": 22,
           "outOf": 34,
           "percentile": 0.3636
-        },
-        {
-          "indicatorId": "water",
-          "value": 92.5,
-          "rank": 25,
-          "outOf": 33,
-          "percentile": 0.25
         }
       ],
       "topIssueId": "crime"
@@ -1045,16 +937,9 @@
           "rank": 25,
           "outOf": 34,
           "percentile": 0.2727
-        },
-        {
-          "indicatorId": "water",
-          "value": 45.4,
-          "rank": 4,
-          "outOf": 33,
-          "percentile": 0.9062
         }
       ],
-      "topIssueId": "water"
+      "topIssueId": "crime"
     },
     {
       "name": "Meghalaya",
@@ -1102,13 +987,6 @@
           "rank": 7,
           "outOf": 34,
           "percentile": 0.8182
-        },
-        {
-          "indicatorId": "water",
-          "value": 44.7,
-          "rank": 3,
-          "outOf": 33,
-          "percentile": 0.9375
         }
       ],
       "topIssueId": "poverty"
@@ -1152,16 +1030,9 @@
           "rank": 34,
           "outOf": 34,
           "percentile": 0.0
-        },
-        {
-          "indicatorId": "water",
-          "value": 60.4,
-          "rank": 7,
-          "outOf": 33,
-          "percentile": 0.8125
         }
       ],
-      "topIssueId": "water"
+      "topIssueId": "crime"
     },
     {
       "name": "Nagaland",
@@ -1202,16 +1073,9 @@
           "rank": 33,
           "outOf": 34,
           "percentile": 0.0303
-        },
-        {
-          "indicatorId": "water",
-          "value": 53.8,
-          "rank": 5,
-          "outOf": 33,
-          "percentile": 0.875
         }
       ],
-      "topIssueId": "water"
+      "topIssueId": "poverty"
     },
     {
       "name": "Odisha",
@@ -1259,13 +1123,6 @@
           "rank": 5,
           "outOf": 34,
           "percentile": 0.8788
-        },
-        {
-          "indicatorId": "water",
-          "value": 75.3,
-          "rank": 10,
-          "outOf": 33,
-          "percentile": 0.7188
         }
       ],
       "topIssueId": "health"
@@ -1316,13 +1173,6 @@
           "rank": 20,
           "outOf": 34,
           "percentile": 0.4242
-        },
-        {
-          "indicatorId": "water",
-          "value": 90.5,
-          "rank": 22,
-          "outOf": 33,
-          "percentile": 0.3438
         }
       ],
       "topIssueId": "education"
@@ -1373,13 +1223,6 @@
           "rank": 6,
           "outOf": 34,
           "percentile": 0.8485
-        },
-        {
-          "indicatorId": "water",
-          "value": 97.6,
-          "rank": 31,
-          "outOf": 33,
-          "percentile": 0.0625
         }
       ],
       "topIssueId": "unemployment"
@@ -1423,16 +1266,9 @@
           "rank": 32,
           "outOf": 34,
           "percentile": 0.0606
-        },
-        {
-          "indicatorId": "water",
-          "value": 85.3,
-          "rank": 16,
-          "outOf": 33,
-          "percentile": 0.5312
         }
       ],
-      "topIssueId": "water"
+      "topIssueId": "education"
     },
     {
       "name": "Tamil Nadu",
@@ -1480,13 +1316,6 @@
           "rank": 27,
           "outOf": 34,
           "percentile": 0.2121
-        },
-        {
-          "indicatorId": "water",
-          "value": 95.1,
-          "rank": 30,
-          "outOf": 33,
-          "percentile": 0.0938
         }
       ],
       "topIssueId": "crime"
@@ -1587,13 +1416,6 @@
           "rank": 16,
           "outOf": 34,
           "percentile": 0.5455
-        },
-        {
-          "indicatorId": "water",
-          "value": 67.5,
-          "rank": 8,
-          "outOf": 33,
-          "percentile": 0.7812
         }
       ],
       "topIssueId": "unemployment"
@@ -1644,13 +1466,6 @@
           "rank": 2,
           "outOf": 34,
           "percentile": 0.9697
-        },
-        {
-          "indicatorId": "water",
-          "value": 83.4,
-          "rank": 15,
-          "outOf": 33,
-          "percentile": 0.5625
         }
       ],
       "topIssueId": "unemployment"
@@ -1701,13 +1516,6 @@
           "rank": 11,
           "outOf": 34,
           "percentile": 0.697
-        },
-        {
-          "indicatorId": "water",
-          "value": 92.2,
-          "rank": 23,
-          "outOf": 33,
-          "percentile": 0.3125
         }
       ],
       "topIssueId": "health"
@@ -1758,13 +1566,6 @@
           "rank": 19,
           "outOf": 34,
           "percentile": 0.4545
-        },
-        {
-          "indicatorId": "water",
-          "value": 92.2,
-          "rank": 24,
-          "outOf": 33,
-          "percentile": 0.2812
         }
       ],
       "topIssueId": "education"
@@ -1798,16 +1599,9 @@
           "rank": 30,
           "outOf": 34,
           "percentile": 0.1212
-        },
-        {
-          "indicatorId": "water",
-          "value": 85.5,
-          "rank": 17,
-          "outOf": 33,
-          "percentile": 0.5
         }
       ],
-      "topIssueId": "water"
+      "topIssueId": "education"
     },
     {
       "name": "Chandigarh",
@@ -1845,13 +1639,6 @@
           "rank": 23,
           "outOf": 34,
           "percentile": 0.3333
-        },
-        {
-          "indicatorId": "water",
-          "value": 99.3,
-          "rank": 33,
-          "outOf": 33,
-          "percentile": 0.0
         }
       ],
       "topIssueId": "crime"
@@ -1928,13 +1715,6 @@
           "rank": 24,
           "outOf": 34,
           "percentile": 0.303
-        },
-        {
-          "indicatorId": "water",
-          "value": 95.0,
-          "rank": 29,
-          "outOf": 33,
-          "percentile": 0.125
         }
       ],
       "topIssueId": "crime"
@@ -1985,13 +1765,6 @@
           "rank": 18,
           "outOf": 34,
           "percentile": 0.4848
-        },
-        {
-          "indicatorId": "water",
-          "value": 76.8,
-          "rank": 11,
-          "outOf": 33,
-          "percentile": 0.6875
         }
       ],
       "topIssueId": "unemployment"
@@ -2065,16 +1838,9 @@
           "rank": 29,
           "outOf": 34,
           "percentile": 0.1515
-        },
-        {
-          "indicatorId": "water",
-          "value": 22.8,
-          "rank": 1,
-          "outOf": 33,
-          "percentile": 1.0
         }
       ],
-      "topIssueId": "water"
+      "topIssueId": "crime"
     },
     {
       "name": "Puducherry",
@@ -2122,13 +1888,6 @@
           "rank": 26,
           "outOf": 34,
           "percentile": 0.2424
-        },
-        {
-          "indicatorId": "water",
-          "value": 97.8,
-          "rank": 32,
-          "outOf": 33,
-          "percentile": 0.0312
         }
       ],
       "topIssueId": "crime"

@@ -2,6 +2,7 @@
 
 import { Header } from "@/components/Header";
 import { CategoryPicker } from "@/components/CategoryPicker";
+import { ContributeCallout } from "@/components/ContributeCallout";
 import { RegionMap } from "@/components/RegionMap";
 import { StatePanel } from "@/components/StatePanel";
 import { StateQuickSelect } from "@/components/StateQuickSelect";
@@ -29,6 +30,8 @@ export default function Home() {
             <StatePanel />
           </div>
         </div>
+
+        <ContributeCallout />
 
         <footer className="mt-4 flex flex-col items-center gap-1 pb-4 text-center text-[11px] text-white/25">
           <p>

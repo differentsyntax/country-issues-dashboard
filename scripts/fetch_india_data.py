@@ -7,18 +7,23 @@ This REPLACES the old generate_india_data.py simulator. Every number here
 comes from a real published source — no seeded/synthetic data.
 
 Sources (each also embedded per-indicator in the output JSON, and rendered
-in-app with a link):
+in-app with a link). Only indicators with a real, dated figure from 2018-19
+or later are included — see `INDICATORS` below for the current, up-to-date
+set:
   - Unemployment rate: PLFS 2018-19 (MoSPI), via Wikipedia
   - Poverty rate (MPI): NITI Aayog, 2023, via Wikipedia
   - Crime rate: NCRB "Crime in India" 2023, via Wikipedia
   - Literacy rate: PLFS report 2024, via Wikipedia
   - Infant mortality rate: Sample Registration System (SRS) 2019, via
     Wikipedia
-  - Access to safe drinking water: Census 2011, via Wikipedia
   - Ruling government (CM + party): Wikipedia "Chief minister (India)",
     current list section
   - State basics (zone, capital, area): Wikipedia "States and union
     territories of India"
+
+Dropped for being clearly outdated (pre-2019): access to safe drinking
+water (Census 2011). Its fetcher can be found in git history (see the
+commit that removed it) if a fresher per-state source is ever found.
 
 Air Quality (pollution) is intentionally NOT fetched/stored here: AQICN's
 free API terms forbid caching or redistributing their data, so it's fetched
@@ -267,19 +272,6 @@ def fetch_infant_mortality() -> dict[str, float]:
     return out
 
 
-def fetch_water_access() -> dict[str, float]:
-    grid = fetch_wikitables("List of Indian states and union territories by access to safe drinking water")[0]
-    out = {}
-    for row in grid[1:]:
-        if len(row) < 3:
-            continue
-        state = normalize_state(row[1])
-        val = parse_float(row[2])
-        if state and val is not None:
-            out[state] = val
-    return out
-
-
 def fetch_government() -> dict[str, dict]:
     grid = fetch_wikitables_in_section("Chief minister (India)", "Current list")[0]
     out = {}
@@ -356,13 +348,6 @@ INDICATORS = [
         "sourceName": "Sample Registration System (SRS), Ministry of Health — via Wikipedia",
         "sourceUrl": "https://en.wikipedia.org/wiki/List_of_Indian_states_by_infant_mortality_rate",
         "fetch": fetch_infant_mortality,
-    },
-    {
-        "id": "water", "label": "Water Supply & Scarcity", "icon": "droplet",
-        "unit": "% households with access", "direction": "lowerIsWorse", "asOf": "2011",
-        "sourceName": "Census of India 2011 — via Wikipedia",
-        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_Indian_states_and_union_territories_by_access_to_safe_drinking_water",
-        "fetch": fetch_water_access,
     },
     {
         "id": "pollution", "label": "Air Quality", "icon": "wind",

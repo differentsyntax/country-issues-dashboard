@@ -2,7 +2,7 @@
   "name": "country-issues-dashboard",
   "version": "0.1.0",
   "private": true,
-  "description": "An interactive dashboard of a country's real, publicly-sourced civic indicators by state/region — economy, health, water, crime, air quality, and ruling government.",
+  "description": "An interactive dashboard of a country's real, publicly-sourced civic indicators by state/region — economy, health, crime, air quality, and ruling government.",
   "license": "MIT",
   "author": "Mridul Awasthi",
   "repository": {

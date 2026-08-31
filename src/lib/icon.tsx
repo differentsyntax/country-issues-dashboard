@@ -1,7 +1,6 @@
 import {
   Briefcase,
   CircleDot,
-  Droplet,
   School,
   ShieldAlert,
   Stethoscope,
@@ -21,7 +20,6 @@ const ICONS: Record<string, LucideIcon> = {
   "shield-alert": ShieldAlert,
   "school": School,
   "stethoscope": Stethoscope,
-  "droplet": Droplet,
   "wind": Wind,
 };
 
