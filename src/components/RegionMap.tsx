@@ -36,6 +36,16 @@ export function RegionMap() {
     setTooltipPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
   }
 
+  // Any click on a state should drop its own hover tooltip rather than
+  // leaving it to keep following the cursor — but only if this is the state
+  // actually being hovered. Clearing unconditionally would also dismiss a
+  // different state's tooltip on a keyboard selection made while the mouse
+  // rests elsewhere on the map.
+  function handleSelect(key: string, isSelected: boolean) {
+    selectState(isSelected ? null : key);
+    if (hoveredStateKey === key) hoverState(null);
+  }
+
   // For each state, resolve which indicator is driving its color and how
   // severe that reading is, in both the default categorical mode and the
   // single-indicator picker mode.
@@ -106,19 +116,19 @@ export function RegionMap() {
                 d={d}
                 className="state-shape"
                 fill={fill}
-                opacity={isHovered ? 1 : 0.92}
+                opacity={isHovered || isSelected ? 1 : 0.92}
                 stroke={isSelected ? "#f2f4f8" : "rgba(6,9,15,0.65)"}
                 strokeWidth={isSelected ? 1.6 : 0.6}
                 filter={isHovered || isSelected ? "url(#state-glow)" : undefined}
                 onMouseEnter={() => hoverState(key)}
-                onClick={() => selectState(isSelected ? null : key)}
+                onClick={() => handleSelect(key, isSelected)}
                 tabIndex={0}
                 role="button"
                 aria-label={key}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
-                    selectState(isSelected ? null : key);
+                    handleSelect(key, isSelected);
                   }
                 }}
               />
@@ -139,7 +149,7 @@ export function RegionMap() {
                   fill="transparent"
                   className="cursor-pointer"
                   onMouseEnter={() => hoverState(key)}
-                  onClick={() => selectState(isSelected ? null : key)}
+                  onClick={() => handleSelect(key, isSelected)}
                 />
                 <circle
                   cx={c[0]}
