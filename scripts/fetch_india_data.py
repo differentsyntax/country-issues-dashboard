@@ -343,7 +343,7 @@ INDICATORS = [
         "fetch": fetch_literacy,
     },
     {
-        "id": "health", "label": "Health (Infant Mortality)", "icon": "stethoscope",
+        "id": "health", "label": "Infant Mortality", "icon": "stethoscope",
         "unit": "per 1,000 live births", "direction": "higherIsWorse", "asOf": "2019",
         "sourceName": "Sample Registration System (SRS), Ministry of Health — via Wikipedia",
         "sourceUrl": "https://en.wikipedia.org/wiki/List_of_Indian_states_by_infant_mortality_rate",

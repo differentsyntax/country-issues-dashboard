@@ -56,7 +56,7 @@ for water access) are deliberately left out rather than shown as current:
 | Poverty (MPI) | NITI Aayog Multidimensional Poverty Index | as of 2023 |
 | Crime Rate | National Crime Records Bureau (NCRB) | as of 2023 |
 | Education Access (literacy) | PLFS report 2024 | as of 2024 |
-| Health (Infant Mortality) | Sample Registration System (SRS) | as of 2019 |
+| Infant Mortality | Sample Registration System (SRS) | as of 2019 |
 | Air Quality | [AQICN](https://aqicn.org/api/) World Air Quality Index | **live**, fetched per page view |
 
 Ruling government (Chief Minister + party) and state context (zone, capital,
