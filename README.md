@@ -25,13 +25,13 @@ the data layer structured so more countries can be added as siblings.
    npm install
    ```
 
-2. (Optional) Enable live Air Quality: get a free token at
+2. (Optional) Enable live Air Pollution data: get a free token at
    [aqicn.org/data-platform/token](https://aqicn.org/data-platform/token/)
    and put it in `.env.local`:
    ```
    AQICN_TOKEN=your-token-here
    ```
-   Without it, everything else works normally — Air Quality just shows as
+   Without it, everything else works normally — Air Pollution just shows as
    "not configured" instead of live data.
 
 3. Run the development server:
@@ -65,7 +65,7 @@ area, population) are also real, sourced from Wikipedia's "Chief minister
 
 Most government sources publish annually or periodically, not daily — each
 indicator shows exactly when its figure is from rather than pretending
-everything updates in real time. Air Quality is the one genuinely live
+everything updates in real time. Air Pollution is the one genuinely live
 piece: AQICN's free tier forbids caching/archiving their data, so it's
 fetched fresh per pageview through `src/app/api/aqi/route.ts`, never stored.
 
@@ -98,7 +98,7 @@ This repo is Netlify-ready out of the box (`netlify.toml` +
 1. In Netlify: **Add new site → Import an existing project**, point it at
    this repo. Build command and publish directory are already configured.
 2. In **Site configuration → Environment variables**, add `AQICN_TOKEN` if
-   you want live Air Quality (optional).
+   you want live Air Pollution data (optional).
 3. In this repo's **Settings → Actions → General**, make sure Actions are
    enabled so `refresh-data.yml` can run and keep the data current.
 
@@ -118,7 +118,7 @@ src/
     types.ts             — shared types, including CountryPackage
     indicatorColors.ts   — categorical + sequential color mapping per indicator
     partySymbols.ts      — verified ECI election symbol per political party
-    useLiveAqi.ts        — client hook for the live Air Quality endpoint
+    useLiveAqi.ts        — client hook for the live Air Pollution endpoint
   app/api/aqi/route.ts   — server-side AQICN proxy (never persists data)
   components/            — map, panels, category picker, etc. — all
                           country-agnostic, they only read from lib/data.ts
@@ -175,7 +175,7 @@ boundaries.
 - **Party symbols:** shown for parties whose ECI-allotted symbol has been
   individually verified (see `src/lib/partySymbols.ts`); any other party
   gets a neutral fallback rather than a guessed symbol.
-- **Live Air Quality coverage:** AQICN's city search doesn't report a "no
+- **Live Air Pollution coverage:** AQICN's city search doesn't report a "no
   match" status — when it can't find a station for a state's capital, it can
   silently return some unrelated station elsewhere instead (observed:
   querying "Raipur" once returned a Dehradun reading). `src/app/api/aqi/route.ts`

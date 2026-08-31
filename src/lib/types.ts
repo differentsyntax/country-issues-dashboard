@@ -13,7 +13,7 @@ export interface IndicatorDef {
   sourceName: string;
   sourceUrl: string;
   /** true for indicators fetched live per-pageview (not stored in the
-   * committed dataset), e.g. Air Quality. */
+   * committed dataset), e.g. Air Pollution. */
   live?: boolean;
 }
 

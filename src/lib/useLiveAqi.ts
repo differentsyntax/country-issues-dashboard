@@ -36,7 +36,7 @@ function computeSeverity(byState: Record<string, AqiEntry>): Record<string, Stat
   return out;
 }
 
-/** Fetches live Air Quality once per session and keeps it in memory —
+/** Fetches live Air Pollution once per session and keeps it in memory —
  * shared across every component that needs it (map coloring, state panel)
  * without refetching per state. */
 export function useLiveAqi(): LiveAqiState {

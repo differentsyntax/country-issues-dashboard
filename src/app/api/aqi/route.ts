@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { states } from "@/lib/data";
 
 /**
- * Live Air Quality proxy for AQICN (https://aqicn.org/api/).
+ * Live Air Pollution proxy for AQICN (https://aqicn.org/api/).
  *
  * AQICN's free tier forbids caching/archiving/redistributing their data, so
  * this is fetched fresh per request (Next.js's fetch cache below is a short

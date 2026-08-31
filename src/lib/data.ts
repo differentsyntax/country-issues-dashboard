@@ -23,7 +23,7 @@ export function indicatorValueForState(
 }
 
 /** The state's dominant issue, recomputed client-side so a live value (e.g.
- * Air Quality, which isn't in the static dataset) can outrank a static one
+ * Air Pollution, which isn't in the static dataset) can outrank a static one
  * once it loads. Falls back to the precomputed static `topIssueId` while
  * the live value is still loading/unavailable. */
 export function effectiveTopIssueId(
@@ -36,7 +36,7 @@ export function effectiveTopIssueId(
 }
 
 /** A state's top N indicators by severity percentile (most severe first),
- * optionally merging in a live value (e.g. Air Quality) computed at render
+ * optionally merging in a live value (e.g. Air Pollution) computed at render
  * time since it isn't in the static dataset. */
 export function topIndicatorsForState(
   state: StateEntry,

@@ -25,7 +25,7 @@ Dropped for being clearly outdated (pre-2019): access to safe drinking
 water (Census 2011). Its fetcher can be found in git history (see the
 commit that removed it) if a fresher per-state source is ever found.
 
-Air Quality (pollution) is intentionally NOT fetched/stored here: AQICN's
+Air Pollution is intentionally NOT fetched/stored here: AQICN's
 free API terms forbid caching or redistributing their data, so it's fetched
 live, per pageview, by src/app/api/aqi/route.ts instead.
 
@@ -438,7 +438,7 @@ def main():
                 "Every figure below comes from a real, cited, published source "
                 "(see each indicator's source link). Nothing here is simulated. "
                 "Most sources publish annually or periodically, not daily — see "
-                "each indicator's 'as of' date. Air Quality is fetched live per "
+                "each indicator's 'as of' date. Air Pollution is fetched live per "
                 "pageview instead of stored here."
             ),
             "indicators": [
