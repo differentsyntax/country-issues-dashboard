@@ -1,0 +1,40 @@
+{
+  "name": "country-issues-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "description": "An interactive dashboard of a country's top civic & administrative grievance issues, nationally and region-by-region, on a monthly reporting cadence.",
+  "license": "MIT",
+  "author": "Mridul Awasthi",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/differentsyntax/country-issues-dashboard"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "d3-geo": "^3.1.1",
+    "framer-motion": "^13.1.1",
+    "lucide-react": "^1.37.0",
+    "next": "16.3.3",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "recharts": "^3.10.1",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/d3-geo": "^3.1.1",
+    "@types/geojson": "^7946.0.16",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.3",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
