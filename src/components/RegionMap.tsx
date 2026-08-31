@@ -36,12 +36,14 @@ export function RegionMap() {
     setTooltipPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
   }
 
-  // Selecting a state opens its full detail in StatePanel — the hover
-  // tooltip's "Click for full detail" job is done, so dismiss it rather
-  // than leaving it to keep following the cursor after the click.
+  // Any click on a state should drop its own hover tooltip rather than
+  // leaving it to keep following the cursor — but only if this is the state
+  // actually being hovered. Clearing unconditionally would also dismiss a
+  // different state's tooltip on a keyboard selection made while the mouse
+  // rests elsewhere on the map.
   function handleSelect(key: string, isSelected: boolean) {
     selectState(isSelected ? null : key);
-    hoverState(null);
+    if (hoveredStateKey === key) hoverState(null);
   }
 
   // For each state, resolve which indicator is driving its color and how
@@ -114,7 +116,7 @@ export function RegionMap() {
                 d={d}
                 className="state-shape"
                 fill={fill}
-                opacity={isHovered ? 1 : 0.92}
+                opacity={isHovered || isSelected ? 1 : 0.92}
                 stroke={isSelected ? "#f2f4f8" : "rgba(6,9,15,0.65)"}
                 strokeWidth={isSelected ? 1.6 : 0.6}
                 filter={isHovered || isSelected ? "url(#state-glow)" : undefined}
