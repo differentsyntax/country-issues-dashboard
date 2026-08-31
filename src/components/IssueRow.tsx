@@ -4,45 +4,32 @@ import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { resolveIcon } from "@/lib/icon";
 import { formatIndicatorValue, indicatorById } from "@/lib/data";
-import type { IndicatorDef, StateIndicatorValue } from "@/lib/types";
+import type { StateIndicatorValue } from "@/lib/types";
 
 const RANK_ACCENTS = ["var(--accent-rose)", "var(--accent-amber)", "var(--accent-teal)", "var(--accent-blue)", "var(--accent-violet)"];
 
-function ordinal(n: number): string {
-  const s = ["th", "st", "nd", "rd"];
-  const v = n % 100;
-  return `${n}${s[(v - 20) % 10] ?? s[v] ?? s[0]}`;
-}
-
-/** States the rank as a plain, grammatical fact — "20th highest of 34
- * states/UTs" — rather than a judgment word like "worst" or a bare fraction
- * ("20/34 highest" doesn't parse as anything at a glance for a middling
- * rank; a plain "N/M" reads fine at the extremes but not in the middle).
+/** States how severe this state's value is *relative to other states*, as
+ * a plain comparative percentage — "more severe than 42% of 34 states/UTs"
+ * — rather than a raw rank ("20th of 34"), which doesn't itself convey how
+ * bad that actually is: is 20th out of 34 a real problem, or barely
+ * elevated? A percentage answers that directly.
+ *
+ * This also sidesteps needing a "highest"/"lowest" direction word at all:
+ * `percentile` is already computed direction-aware (1.0 = most severe, see
+ * compute_severity() in scripts/fetch_india_data.py) from the indicator's
+ * `direction`, so "more severe" is correct regardless of whether the raw
+ * value being high or low is what's actually bad — no risk of a label like
+ * "Air Pollution" fighting a "highest"/"lowest" word the way it did before.
+ *
  * "states/UTs", not "states": `outOf` counts every state/UT with real data
- * for this indicator, and includes Union Territories (Delhi, Chandigarh,
+ * for this indicator, including Union Territories (Delhi, Chandigarh,
  * etc.) — calling all of them "states" would be wrong for exactly the ones
  * that aren't, matching the "state/UT" terminology already used elsewhere
- * (see the empty-topIssues message a few lines below).
- *
- * Rank 1 is the one exception, and drops the "1st" ordinal specifically:
- * "1st highest of 17" reads like 1st place in a leaderboard — i.e. the
- * *best* — regardless of what follows "1st", when rank 1 actually means the
- * single highest (worst, for a higherIsWorse indicator like Air Quality)
- * value in the country. "Highest of 17 states/UTs" states the same fact without
- * the "1st = winner" implication "1st" carries in English regardless of
- * context. 2nd/3rd/20th/etc. don't carry that same connotation, so they
- * keep the ordinal.
- *
- * Which word — "highest" or "lowest" — is correct depends on the
- * indicator's `direction`: `rank` is severity-ordered (1 = most severe, see
- * compute_severity() in scripts/fetch_india_data.py), which for a
- * higherIsWorse indicator means rank 1 has the highest raw value, and for a
- * lowerIsWorse one (e.g. literacy) means rank 1 has the LOWEST raw value —
- * so a fixed word would misstate which end of the scale rank 1 is on. */
-function rankCaption(rank: number, outOf: number, direction: IndicatorDef["direction"]): string {
-  const word = direction === "higherIsWorse" ? "highest" : "lowest";
-  const position = rank === 1 ? word[0].toUpperCase() + word.slice(1) : `${ordinal(rank)} ${word}`;
-  return `${position} of ${outOf} states/UTs`;
+ * (see the empty-topIssues message a few lines below). */
+function severityCaption(percentile: number, outOf: number): string {
+  const pct = Math.round(percentile * 100);
+  if (pct >= 100) return `Most severe of ${outOf} states/UTs`;
+  return `More severe than ${pct}% of ${outOf} states/UTs`;
 }
 
 export function IssueRow({
@@ -97,7 +84,7 @@ export function IssueRow({
         </div>
         <div className="flex items-center justify-between gap-2">
           <p className="min-w-0 truncate text-[10px] text-white/35">
-            {rankCaption(value.rank, value.outOf, indicator.direction)}
+            {severityCaption(value.percentile, value.outOf)}
             {indicator.asOf ? ` · as of ${indicator.asOf}` : indicator.live ? " · live" : ""}
           </p>
           <a

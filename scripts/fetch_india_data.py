@@ -25,7 +25,7 @@ Dropped for being clearly outdated (pre-2019): access to safe drinking
 water (Census 2011). Its fetcher can be found in git history (see the
 commit that removed it) if a fresher per-state source is ever found.
 
-Air Quality (pollution) is intentionally NOT fetched/stored here: AQICN's
+Air Pollution is intentionally NOT fetched/stored here: AQICN's
 free API terms forbid caching or redistributing their data, so it's fetched
 live, per pageview, by src/app/api/aqi/route.ts instead.
 
@@ -311,6 +311,13 @@ def fetch_state_basics() -> dict[str, dict]:
 # ---------------------------------------------------------------------------
 # Indicator metadata: id, label, icon, unit, direction, source.
 # direction "higherIsWorse" | "lowerIsWorse" determines severity ranking.
+#
+# Label wording matters: "Air Pollution" (id "pollution"), not "Air
+# Quality" — "highest air QUALITY" reads as good air (the word "quality"
+# alone sounds positive) even though the underlying AQI number goes the
+# opposite way (higher = worse, more polluted). "Highest air pollution"
+# reads correctly as bad, matching direction="higherIsWorse" with no
+# caption wording able to fix a label that fights its own direction.
 # ---------------------------------------------------------------------------
 
 INDICATORS = [
@@ -350,7 +357,7 @@ INDICATORS = [
         "fetch": fetch_infant_mortality,
     },
     {
-        "id": "pollution", "label": "Air Quality", "icon": "wind",
+        "id": "pollution", "label": "Air Pollution", "icon": "wind",
         "unit": "AQI", "direction": "higherIsWorse", "asOf": None,
         "sourceName": "World Air Quality Index Project (AQICN), real-time",
         "sourceUrl": "https://aqicn.org/",
@@ -431,7 +438,7 @@ def main():
                 "Every figure below comes from a real, cited, published source "
                 "(see each indicator's source link). Nothing here is simulated. "
                 "Most sources publish annually or periodically, not daily — see "
-                "each indicator's 'as of' date. Air Quality is fetched live per "
+                "each indicator's 'as of' date. Air Pollution is fetched live per "
                 "pageview instead of stored here."
             ),
             "indicators": [
