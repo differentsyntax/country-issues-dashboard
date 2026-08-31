@@ -8,22 +8,36 @@ import type { IndicatorDef, StateIndicatorValue } from "@/lib/types";
 
 const RANK_ACCENTS = ["var(--accent-rose)", "var(--accent-amber)", "var(--accent-teal)", "var(--accent-blue)", "var(--accent-violet)"];
 
-/** States the rank as a plain "rank/total" fraction plus which end of the
- * scale it's on ("highest"/"lowest") — e.g. "1/17 highest". `rank` is
- * severity-ordered (1 = most severe, see compute_severity() in
- * scripts/fetch_india_data.py); whether that's the highest or lowest raw
- * value depends on the indicator's `direction`, so a fixed word would
- * misstate it for a lowerIsWorse indicator (e.g. the state with the LOWEST
- * literacy is rank 1, not the highest).
+function ordinal(n: number): string {
+  const s = ["th", "st", "nd", "rd"];
+  const v = n % 100;
+  return `${n}${s[(v - 20) % 10] ?? s[v] ?? s[0]}`;
+}
+
+/** States the rank as a plain, grammatical fact — "20th highest of 34
+ * states" — rather than a judgment word like "worst" or a bare fraction
+ * ("20/34 highest" doesn't parse as anything at a glance for a middling
+ * rank; a plain "N/M" reads fine at the extremes but not in the middle).
  *
- * Deliberately not ordinal words ("1st", "2nd", ...): "1st highest of 17"
- * reads like 1st place in a leaderboard — i.e. the *best* — regardless of
- * what follows "1st", when rank 1 actually means the single highest (worst,
- * for a higherIsWorse indicator like Air Quality) value in the country. A
- * plain fraction doesn't carry that "1st = winner" baggage. */
+ * Rank 1 is the one exception, and drops the "1st" ordinal specifically:
+ * "1st highest of 17" reads like 1st place in a leaderboard — i.e. the
+ * *best* — regardless of what follows "1st", when rank 1 actually means the
+ * single highest (worst, for a higherIsWorse indicator like Air Quality)
+ * value in the country. "Highest of 17 states" states the same fact without
+ * the "1st = winner" implication "1st" carries in English regardless of
+ * context. 2nd/3rd/20th/etc. don't carry that same connotation, so they
+ * keep the ordinal.
+ *
+ * Which word — "highest" or "lowest" — is correct depends on the
+ * indicator's `direction`: `rank` is severity-ordered (1 = most severe, see
+ * compute_severity() in scripts/fetch_india_data.py), which for a
+ * higherIsWorse indicator means rank 1 has the highest raw value, and for a
+ * lowerIsWorse one (e.g. literacy) means rank 1 has the LOWEST raw value —
+ * so a fixed word would misstate which end of the scale rank 1 is on. */
 function rankCaption(rank: number, outOf: number, direction: IndicatorDef["direction"]): string {
   const word = direction === "higherIsWorse" ? "highest" : "lowest";
-  return `${rank}/${outOf} ${word}`;
+  const position = rank === 1 ? word[0].toUpperCase() + word.slice(1) : `${ordinal(rank)} ${word}`;
+  return `${position} of ${outOf} states`;
 }
 
 export function IssueRow({
