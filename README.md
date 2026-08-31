@@ -57,7 +57,7 @@ for water access) are deliberately left out rather than shown as current:
 | Crime Rate | National Crime Records Bureau (NCRB) | as of 2023 |
 | Education Access (literacy) | PLFS report 2024 | as of 2024 |
 | Infant Mortality | Sample Registration System (SRS) | as of 2019 |
-| Air Quality | [AQICN](https://aqicn.org/api/) World Air Quality Index | **live**, fetched per page view |
+| Air Pollution | [AQICN](https://aqicn.org/api/) World Air Quality Index | **live**, fetched per page view |
 
 Ruling government (Chief Minister + party) and state context (zone, capital,
 area, population) are also real, sourced from Wikipedia's "Chief minister

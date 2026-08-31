@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "India Civic Issues Tracker",
-    "generatedAt": "2026-08-31T03:54:01.805172+00:00",
+    "generatedAt": "2026-08-31T04:40:35.268675+00:00",
     "generatedNote": "Every figure below comes from a real, cited, published source (see each indicator's source link). Nothing here is simulated. Most sources publish annually or periodically, not daily — see each indicator's 'as of' date. Air Quality is fetched live per pageview instead of stored here.",
     "indicators": [
       {
@@ -56,7 +56,7 @@
       },
       {
         "id": "pollution",
-        "label": "Air Quality",
+        "label": "Air Pollution",
         "icon": "wind",
         "unit": "AQI",
         "direction": "higherIsWorse",
