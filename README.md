@@ -178,5 +178,13 @@ boundaries.
 - **Party symbols:** shown for parties whose ECI-allotted symbol has been
   individually verified (see `src/lib/partySymbols.ts`); any other party
   gets a neutral fallback rather than a guessed symbol.
+- **Live Air Quality coverage:** AQICN's city search doesn't report a "no
+  match" status — when it can't find a station for a state's capital, it can
+  silently return some unrelated station elsewhere instead (observed:
+  querying "Raipur" once returned a Dehradun reading). `src/app/api/aqi/route.ts`
+  only accepts a result if the requested city name actually appears in the
+  returned station's name, so some capitals without a name-matching station
+  show no live AQI rather than a reading from the wrong place. Showing
+  nothing is better than showing wrong data.
 - Only one country is active at a time (see "Adding Another Country" above
   for what a live switcher needs).

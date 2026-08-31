@@ -38,9 +38,17 @@ async function fetchOne(city: string, token: string): Promise<AqiEntry | null> {
     if (!res.ok) return null;
     const json = await res.json();
     if (json.status !== "ok" || typeof json.data?.aqi !== "number") return null;
+    const stationName: string = json.data.city?.name ?? city;
+    // AQICN's city search doesn't return a "no good match" status — when it
+    // can't find a station for the requested city, it silently falls back
+    // to some other station in its network instead (observed: querying
+    // "Raipur" returned a Dehradun station with no error). Only trust the
+    // result if the requested city name actually appears in the returned
+    // station's name; otherwise this isn't really the city we asked for.
+    if (!stationName.toLowerCase().includes(city.toLowerCase())) return null;
     return {
       aqi: json.data.aqi,
-      stationName: json.data.city?.name ?? city,
+      stationName,
       measuredAt: json.data.time?.s ?? new Date().toISOString(),
     };
   } catch {
