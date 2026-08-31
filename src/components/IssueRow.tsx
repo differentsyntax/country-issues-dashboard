@@ -58,32 +58,41 @@ export function IssueRow({
         animate={{ width: `${pct}%` }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       />
-      <div className="relative flex items-center gap-3">
-        <span
-          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-[11px] font-semibold"
-          style={{ background: `${accent}22`, color: accent }}
-        >
-          {rank + 1}
-        </span>
-        {/* eslint-disable-next-line react-hooks/static-components -- resolveIcon is a pure lookup into a static icon map; identity is stable across renders */}
-        <Icon className="h-4 w-4 shrink-0 text-white/50" strokeWidth={1.75} />
-        <div className="min-w-0 flex-1">
-          <p className={`truncate ${compact ? "text-[13px]" : "text-sm"} text-white/85`}>{indicator.label}</p>
-          <p className="truncate text-[10px] text-white/35">
+      <div className="relative flex flex-col gap-1.5">
+        {/* Label gets its own full-width line — sharing a row with the
+         * value/source-link (which can be as long as "35 per 1,000 live
+         * births") starved narrow containers (the mobile bottom sheet in
+         * particular) of enough space for the label, truncating it into
+         * unreadable fragments like "Inf...". */}
+        <div className="flex min-w-0 items-center gap-3">
+          <span
+            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-[11px] font-semibold"
+            style={{ background: `${accent}22`, color: accent }}
+          >
+            {rank + 1}
+          </span>
+          {/* eslint-disable-next-line react-hooks/static-components -- resolveIcon is a pure lookup into a static icon map; identity is stable across renders */}
+          <Icon className="h-4 w-4 shrink-0 text-white/50" strokeWidth={1.75} />
+          <p className={`min-w-0 flex-1 truncate ${compact ? "text-[13px]" : "text-sm"} text-white/85`}>
+            {indicator.label}
+          </p>
+        </div>
+        <div className="flex items-center justify-between gap-2">
+          <p className="min-w-0 truncate text-[10px] text-white/35">
             {rankCaption(value.rank, value.outOf, indicator.direction)}
             {indicator.asOf ? ` · as of ${indicator.asOf}` : indicator.live ? " · live" : ""}
           </p>
+          <a
+            href={indicator.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex shrink-0 items-center gap-1 font-mono text-[13px] tabular-nums text-white/70 transition hover:text-teal-300"
+            title={`Source: ${indicator.sourceName}`}
+          >
+            {formatIndicatorValue(value.value, indicator)}
+            <ExternalLink className="h-3 w-3 opacity-50" />
+          </a>
         </div>
-        <a
-          href={indicator.sourceUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex shrink-0 items-center gap-1 font-mono text-[13px] tabular-nums text-white/70 transition hover:text-teal-300"
-          title={`Source: ${indicator.sourceName}`}
-        >
-          {formatIndicatorValue(value.value, indicator)}
-          <ExternalLink className="h-3 w-3 opacity-50" />
-        </a>
       </div>
     </motion.li>
   );
