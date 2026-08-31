@@ -17,7 +17,7 @@ export function Header() {
         </h1>
         <p className="max-w-2xl text-sm text-white/50">
           Real, cited government &amp; official data on the issues facing every state &amp; UT
-          &mdash; unemployment, poverty, crime, health, education, and live air quality.
+          &mdash; unemployment, poverty, crime, infant mortality, education, and live air quality.
         </p>
       </div>
       <MethodologyNote />
