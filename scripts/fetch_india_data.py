@@ -24,10 +24,6 @@ Air Quality (pollution) is intentionally NOT fetched/stored here: AQICN's
 free API terms forbid caching or redistributing their data, so it's fetched
 live, per pageview, by src/app/api/aqi/route.ts instead.
 
-Deliberately excluded: NCRB also publishes a state-wise suicide-rate list.
-This script does not fetch it — ranking/coloring states by suicide
-statistics on a map is not something this dashboard does.
-
 Run: python3 scripts/fetch_india_data.py
 Requires: requests, beautifulsoup4 (pip install -r scripts/requirements.txt)
 """
@@ -451,9 +447,7 @@ def main():
                 "(see each indicator's source link). Nothing here is simulated. "
                 "Most sources publish annually or periodically, not daily — see "
                 "each indicator's 'as of' date. Air Quality is fetched live per "
-                "pageview instead of stored here. This dashboard deliberately "
-                "does not use NCRB's state suicide-rate data to rank or color "
-                "states."
+                "pageview instead of stored here."
             ),
             "indicators": [
                 {k: v for k, v in ind.items() if k != "fetch"} for ind in INDICATORS

@@ -1,8 +1,8 @@
 {
   "meta": {
     "title": "India Civic Issues Tracker",
-    "generatedAt": "2026-08-31T02:04:36.525871+00:00",
-    "generatedNote": "Every figure below comes from a real, cited, published source (see each indicator's source link). Nothing here is simulated. Most sources publish annually or periodically, not daily — see each indicator's 'as of' date. Air Quality is fetched live per pageview instead of stored here. This dashboard deliberately does not use NCRB's state suicide-rate data to rank or color states.",
+    "generatedAt": "2026-08-31T02:53:11.002950+00:00",
+    "generatedNote": "Every figure below comes from a real, cited, published source (see each indicator's source link). Nothing here is simulated. Most sources publish annually or periodically, not daily — see each indicator's 'as of' date. Air Quality is fetched live per pageview instead of stored here.",
     "indicators": [
       {
         "id": "unemployment",

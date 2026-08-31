@@ -74,10 +74,6 @@ unemployment is worse, higher literacy is better). A state's "dominant
 issue" (used for the map's default coloring) is whichever indicator it ranks
 worst on, relative to other states.
 
-**Deliberately excluded:** NCRB also publishes a state-wise suicide-rate
-list. This dashboard does not fetch or use it — ranking/coloring states by
-suicide statistics on a map is not something this project does.
-
 ## Keeping the data current
 
 `scripts/fetch_india_data.py` re-fetches every indicator live and rewrites

@@ -86,13 +86,6 @@ export function MethodologyNote() {
             .
           </p>
 
-          <p className="text-white/50">
-            <strong className="text-white/70">Deliberately excluded:</strong> NCRB also
-            publishes a state-wise suicide-rate list. This dashboard does not fetch or use
-            it — ranking or coloring states by suicide statistics on a map is not something
-            this project does.
-          </p>
-
           <p className="text-[11px] text-white/35">
             Refreshed automatically on a schedule — see the README for the update pipeline.
             Last refreshed: {new Date(dataset.meta.generatedAt).toLocaleDateString("en-IN", { year: "numeric", month: "long", day: "numeric" })}.
