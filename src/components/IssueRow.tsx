@@ -15,15 +15,20 @@ function ordinal(n: number): string {
 }
 
 /** States the rank as a plain, grammatical fact — "20th highest of 34
- * states" — rather than a judgment word like "worst" or a bare fraction
+ * states/UTs" — rather than a judgment word like "worst" or a bare fraction
  * ("20/34 highest" doesn't parse as anything at a glance for a middling
  * rank; a plain "N/M" reads fine at the extremes but not in the middle).
+ * "states/UTs", not "states": `outOf` counts every state/UT with real data
+ * for this indicator, and includes Union Territories (Delhi, Chandigarh,
+ * etc.) — calling all of them "states" would be wrong for exactly the ones
+ * that aren't, matching the "state/UT" terminology already used elsewhere
+ * (see the empty-topIssues message a few lines below).
  *
  * Rank 1 is the one exception, and drops the "1st" ordinal specifically:
  * "1st highest of 17" reads like 1st place in a leaderboard — i.e. the
  * *best* — regardless of what follows "1st", when rank 1 actually means the
  * single highest (worst, for a higherIsWorse indicator like Air Quality)
- * value in the country. "Highest of 17 states" states the same fact without
+ * value in the country. "Highest of 17 states/UTs" states the same fact without
  * the "1st = winner" implication "1st" carries in English regardless of
  * context. 2nd/3rd/20th/etc. don't carry that same connotation, so they
  * keep the ordinal.
@@ -37,7 +42,7 @@ function ordinal(n: number): string {
 function rankCaption(rank: number, outOf: number, direction: IndicatorDef["direction"]): string {
   const word = direction === "higherIsWorse" ? "highest" : "lowest";
   const position = rank === 1 ? word[0].toUpperCase() + word.slice(1) : `${ordinal(rank)} ${word}`;
-  return `${position} of ${outOf} states`;
+  return `${position} of ${outOf} states/UTs`;
 }
 
 export function IssueRow({
